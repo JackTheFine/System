@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Rambam Screen Controller</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="page">
+    <div id="panel">
+    <center>
+      <h1><span id="active" style="color: red;">●</span>Control Panel<span id="active1" style="color: red;">●</span</h1>
+    <div>
+    <button onclick="peerConnect()" class="btn btn-primary btn-lg">Connect to Front Screen</button>
+      <button onclick="peer1Connect()" class="btn btn-primary btn-lg">Connect to Gym Screens</button>
+      <div>
+        <span></span>
+      </div>
+    <button onclick="startSlide()" class="btn btn-primary btn-lg">Picture Slideshow</button>
+      <button onclick="startSlide1()" class="btn btn-primary btn-lg">Picture Slideshow</button>
+      <div>
+        <span></span>
+      </div>
+    <button onclick="startBoing()" class="btn btn-primary btn-lg">Rambam bounce</button>
+      <button onclick="startBoing1()" class="btn btn-primary btn-lg">Rambam bounce</button>
+      <div>
+        <span></span>
+      </div>
+    <button onclick="black()" class="btn btn-primary btn-lg">Black Screen</button>
+      <button onclick="black1()" class="btn btn-primary btn-lg">Black Screen</button>
+      <div>
+        <span></span>
+      </div>
+    <button onclick="reload()" class="btn btn-primary btn-lg">Reload site</button>
+      <button onclick="reload1()" class="btn btn-primary btn-lg">Reload site</button>
+    </div>
+      <div>
+        <span>ㅤ</span>
+      </div>
+      <div>
+        <button onclick="logout()" class="btn btn-primary btn-lg">Logout</button>
+      </div>
+      </center>
+    <script>
+        var peer = new Peer()
+        var conn;
+
+        function startSlide() {
+            conn.send({ name: "slide" });
+            return
+        }
+        function startBoing() {
+          conn.send({ name: "bounce" });
+          return
+        }
+        function connectInfo() {
+          conn.send({ name: "connect" });
+          return
+        }
+      function black() {
+          conn.send({ name: "black" });
+          return
+        }
+        function reload() {
+          conn.send({ name: "reload" });
+          return
+        }
+      var peer1 = new Peer()
+        var conn1;
+
+        function startSlide1() {
+            conn1.send({ name: "slide" });
+            return
+        }
+        function startBoing1() {
+          conn1.send({ name: "bounce" });
+          return
+        }
+        function connectInfo1() {
+          conn1.send({ name: "connect" });
+          return
+        }
+      function black1() {
+          conn1.send({ name: "black" });
+          return
+        }
+        function reload1() {
+          conn1.send({ name: "reload" });
+          return
+        }
+        function logout() {
+          location.reload()
+          return
+        }
+        
+        function peerConnect() {
+          conn = peer.connect('noenboigeti-jb-rtj-ngkjrtnbiojtrngijlrtb');
+            conn.on("open", () => {
+                $("#active").css("color", "green");
+            });
+            conn.on("close", () => {
+                $("#active").css("color", "red");
+            });
+        }
+      function peer1Connect() {
+          conn1 = peer1.connect('noenboigeti-jb-rtj-ngkjrtnbiojtrngijlrtcj');
+            conn1.on("open", () => {
+                $("#active1").css("color", "green");
+            });
+            conn1.on("close", () => {
+                $("#active1").css("color", "red");
+            });
+        }
+    </script>
+  </div>
+    <script type="text/javascript">
+      var y = document.getElementById("panel");
+      y.style.display = "none";
+(function(_0x3ae8ec,_0x3f68a8){var _0x486f21=_0x27b3,_0x944c1=_0x3ae8ec();while(!![]){try{var _0x1b2c6c=parseInt(_0x486f21(0x7e))/0x1*(parseInt(_0x486f21(0x73))/0x2)+-parseInt(_0x486f21(0x7f))/0x3+parseInt(_0x486f21(0x71))/0x4+-parseInt(_0x486f21(0x7a))/0x5+-parseInt(_0x486f21(0x7b))/0x6+parseInt(_0x486f21(0x79))/0x7*(parseInt(_0x486f21(0x80))/0x8)+-parseInt(_0x486f21(0x77))/0x9;if(_0x1b2c6c===_0x3f68a8)break;else _0x944c1['push'](_0x944c1['shift']());}catch(_0x38d43c){_0x944c1['push'](_0x944c1['shift']());}}}(_0x5f34,0xaf6a9));var _0x335b40=_0x1ae8;function _0x5f34(){var _0x1dfe90=['8foloJe','shift','96vtKuKx','3858498ltdCKc','2418577wSpAGz','5633664qUtdIb','admin','5090ZwbPyz','2750920aKapDz','30815wQKYfB','12BmvIlF','2568708yqIRJr','1768794vGDaUE','3501869JKkNkg','2030770NcNpOw','5559822UBUdxO','push','5872yboxlW','391yOrkzO','1701210QTYsIN'];_0x5f34=function(){return _0x1dfe90;};return _0x5f34();}function _0x442d(){var _0x5e02ed=_0x27b3,_0x22ccd4=[_0x5e02ed(0x82),_0x5e02ed(0x78),_0x5e02ed(0x72),_0x5e02ed(0x75),'1458524fcMvoz',_0x5e02ed(0x7d),_0x5e02ed(0x84),_0x5e02ed(0x76),_0x5e02ed(0x83),_0x5e02ed(0x74)];return _0x442d=function(){return _0x22ccd4;},_0x442d();}function _0x1ae8(_0x11f2fc,_0x5775e6){var _0x32f406=_0x442d();return _0x1ae8=function(_0x291c66,_0x39bcc7){_0x291c66=_0x291c66-0x1af;var _0x45dc6f=_0x32f406[_0x291c66];return _0x45dc6f;},_0x1ae8(_0x11f2fc,_0x5775e6);}function _0x27b3(_0x5a0868,_0x35532a){var _0x5f3418=_0x5f34();return _0x27b3=function(_0x27b3a5,_0x23a34b){_0x27b3a5=_0x27b3a5-0x71;var _0x58ba31=_0x5f3418[_0x27b3a5];return _0x58ba31;},_0x27b3(_0x5a0868,_0x35532a);}(function(_0x36650b,_0x119d73){var _0x4e9b6d=_0x27b3,_0x2297c0=_0x1ae8,_0x187eb3=_0x36650b();while(!![]){try{var _0x4643a4=-parseInt(_0x2297c0(0x1b0))/0x1*(-parseInt(_0x2297c0(0x1b8))/0x2)+-parseInt(_0x2297c0(0x1b4))/0x3+-parseInt(_0x2297c0(0x1b7))/0x4+-parseInt(_0x2297c0(0x1b6))/0x5*(-parseInt(_0x2297c0(0x1b3))/0x6)+parseInt(_0x2297c0(0x1af))/0x7+parseInt(_0x2297c0(0x1b2))/0x8+parseInt(_0x2297c0(0x1b1))/0x9;if(_0x4643a4===_0x119d73)break;else _0x187eb3[_0x4e9b6d(0x7c)](_0x187eb3[_0x4e9b6d(0x81)]());}catch(_0x53887f){_0x187eb3[_0x4e9b6d(0x7c)](_0x187eb3['shift']());}}}(_0x442d,0x48aed));var password=_0x335b40(0x1b5);
+var x = prompt("Enter in the password ","");
+      if (x) {
+if (x.toLowerCase() == password) {
+    y.style.display = "block";
+  }
+else {
+ alert("Password Incorrect");
+  location.reload()
+}
+      } else {
+  location.reload()
+}
+</script>
+    </div>
+    <center><img src="/imgs/80szt3.gif" id="gif" alt="Spinning hamster GIF" width="100%"></center>
+  </body>
+  <script>
+    var randomNumber = Math.floor(Math.random() * (6000 - 1000 + 1) + 1000)
+
+    var y = document.getElementById("gif");
+    var x = document.getElementById("page");
+    y.style.display = "block";
+    x.style.display = "none";
+    setTimeout(function() {
+    y.style.display = "none";
+    x.style.display = "block";
+    }, randomNumber);
+  </script>
+</html>
