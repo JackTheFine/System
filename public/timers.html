@@ -12,6 +12,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
   <div id="page">
     <script>
+		
       $(document).ready(function () {
 	timers = new Array();
 	seconds_toggle = "show";
@@ -93,7 +94,7 @@ $('#setup').modal('show');
 			$("#buttonReset").removeClass('disabled');
 		}		
 		updateRemainingTime();
-//		timers.push(setTimeout(updateRemainingTime(), 1000));
+//	timers.push(setTimeout(updateRemainingTime(), 1000));
 	});
 	
 	$("#buttonReset").live('click',function() {
