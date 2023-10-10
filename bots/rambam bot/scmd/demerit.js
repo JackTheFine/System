@@ -26,13 +26,13 @@ module.exports = {
     client.user.setPresence({ status: "online" /* online, idle, invisible, dnd*/ })
     const tohack = interaction.options.getMember('target');
     const channel = client.channels.cache.get('1056634339875635260');
-    const demerits = JSON.parse(fs.readFileSync("./rambam bot/demerits.json", "utf-8") || "");
+    const demerits = JSON.parse(fs.readFileSync("./bots/rambam bot/demerits.json", "utf-8") || "");
     switch (interaction.options._subcommand) {
       case 'add':
         if (demerits[tohack.user.tag]) demerits[tohack.user.tag].count++;
         else demerits[tohack.user.tag] = { name: tohack.displayName, count: 1 };
 
-        fs.writeFileSync("./rambam bot/demerits.json", JSON.stringify(demerits));
+        fs.writeFileSync("./bots/rambam bot/demerits.json", JSON.stringify(demerits));
         interaction.reply(`Demerit Given to ${tohack.displayName}`)
 
         break;
@@ -45,7 +45,7 @@ module.exports = {
         if (demerits[tohack.user.tag]) demerits[tohack.user.tag].count--;
         else return interaction.reply(`${tohack.displayName} doesnt have any demerits.`)
 
-        fs.writeFileSync("./rambam bot/demerits.json", JSON.stringify(demerits));
+        fs.writeFileSync("./bots/rambam bot/demerits.json", JSON.stringify(demerits));
         interaction.reply(`Demerit removed from ${tohack.displayName}`)
 
         break;
