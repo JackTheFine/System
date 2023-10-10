@@ -11,11 +11,11 @@ module.exports = {
         .setRequired(true)),
 
   async execute(interaction, client) {
+    const e = client.channels.cache.get('1075839058187657266');
     const ttb = interaction.options.getString('tosay')
     const text = ttb.split(' ').slice().join(' ');
     interaction.channel.send(text)
-    console.log(text)
-    console.log(`- ${interaction.user.tag}`)
+e.send({content: `${text} -${interaction.member.displayName}`})
     return interaction.reply({ content: 'Message repeated!!', ephemeral: true })
 
   }
