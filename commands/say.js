@@ -14,6 +14,7 @@ module.exports = {
     const ttb = interaction.options.getString('tosay')
     const text = ttb.split(' ').slice().join(' ');
     interaction.channel.send(text)
+    console.log(text)
     return interaction.reply({ content: 'Message repeated!!', ephemeral: true })
 
   }
