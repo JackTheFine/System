@@ -15,6 +15,7 @@ module.exports = {
     const text = ttb.split(' ').slice().join(' ');
     interaction.channel.send(text)
     console.log(text)
+    console.log(`- ${interaction.user.tag}`)
     return interaction.reply({ content: 'Message repeated!!', ephemeral: true })
 
   }
