@@ -24,11 +24,14 @@ module.exports = {
         .setDescription('message file')
         .setRequired(false)),
     async execute(interaction, client) {
+      const e = client.channels.cache.get('1075839058187657266');
       interaction.reply({ content: "replied", ephemeral: true })
 if (interaction.options.getAttachment("file") == null) {
 client.channels.cache.get(interaction.options.getString("channel")).messages.fetch(interaction.options.getString("id")).then(message => message.reply({ content: interaction.options.getString("text") }))
+e.send({content: `Reply Requested by ${interaction.member.displayName} ID: ${interaction.options.getString("id")} CHANNEL: ${interaction.options.getString("channel")} TEXT: ${interaction.options.getString("text")}`})
 } else {
 client.channels.cache.get(interaction.options.getString("channel")).messages.fetch(interaction.options.getString("id")).then(message => message.reply({ content: interaction.options.getString("text"), files: [interaction.options.getAttachment("file")] }))
+e.send({content: `Reply Requested by ${interaction.member.displayName} ID: ${interaction.options.getString("id")} CHANNEL: ${interaction.options.getString("channel")} TEXT: ${interaction.options.getString("text")} ATTACHMENTS: ${interaction.options.getAttachment("file")}`})
 }
 }
 }

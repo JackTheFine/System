@@ -7,7 +7,7 @@ var port = "8080"
 
 app.set("json spaces", 4);
 
-//app.use(express.static("public", { extensions: ['html'] }));
+app.use(express.static("public", { extensions: ['html'] }));
 //
 require("./bots/mybot/index.js")
 var myBot = db.get("botOn");
