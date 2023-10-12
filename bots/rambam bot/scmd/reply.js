@@ -31,7 +31,7 @@ client.channels.cache.get(interaction.options.getString("channel")).messages.fet
 e.send({content: `Reply Requested by ${interaction.member.displayName} ID: ${interaction.options.getString("id")} CHANNEL: ${interaction.options.getString("channel")} TEXT: ${interaction.options.getString("text")}`})
 } else {
 client.channels.cache.get(interaction.options.getString("channel")).messages.fetch(interaction.options.getString("id")).then(message => message.reply({ content: interaction.options.getString("text"), files: [interaction.options.getAttachment("file")] }))
-e.send({content: `Reply Requested by ${interaction.member.displayName} ID: ${interaction.options.getString("id")} CHANNEL: ${interaction.options.getString("channel")} TEXT: ${interaction.options.getString("text")} ATTACHMENTS: }` , files: [interaction.options.getAttachment("file")]})
+e.send({content: `Reply Requested by ${interaction.member.displayName} ID: ${interaction.options.getString("id")} CHANNEL: ${interaction.options.getString("channel")} TEXT: ${interaction.options.getString("text")} ATTACHMENTS: ` , files: [interaction.options.getAttachment("file")]})
 }
 }
 }
