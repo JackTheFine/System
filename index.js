@@ -17,7 +17,7 @@ var foxy = db.get("botOn3");
 var ftcli = db.get("botOn4");
 console.log("Website starting...");
 app.get("/up/", (req, res) => res.json({ myBot, flyvalle, rambambot, foxy, site: "Up", uptime: new Date(Math.round(process.uptime()) * 1000).toISOString().slice(11, -5) }));
-app.get("/*", (req, res) => res.sendFile(path.join(__dirname, '/public/down.html')));
+app.get("*", (req, res) => res.sendFile(path.join(__dirname, '/public/down.html')));
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, '/public/index.html')));
 try {
   app.listen(port);
