@@ -1,0 +1,25 @@
+2023/10/22-00:24:42.072 a403 Reusing MANIFEST /Users/jackmaradon/Documents/GitHub/System/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/10/22-00:24:42.072 a403 Recovering log #186
+2023/10/22-00:24:42.088 a403 Reusing old log /Users/jackmaradon/Documents/GitHub/System/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000186.log 
+2023/10/22-00:24:42.088 a403 Delete type=2 #185
+2023/10/22-00:24:52.949 a403 Level-0 table #191: started
+2023/10/22-00:24:52.996 a403 Level-0 table #191: 136139 bytes OK
+2023/10/22-00:24:53.040 a403 Delete type=0 #186
+2023/10/22-00:24:53.041 a403 Manual compaction at level-0 from '\x00E\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00F\x00\x00\x00' @ 0 : 0; will stop at '\x00F\x00\x00\x05' @ 119349 : 1
+2023/10/22-00:24:53.041 a403 Compacting 1@0 + 1@1 files
+2023/10/22-00:24:53.131 a403 Generated table #192@0: 50953 keys, 1061400 bytes
+2023/10/22-00:24:53.131 a403 Compacted 1@0 + 1@1 files => 1061400 bytes
+2023/10/22-00:24:53.173 a403 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/10/22-00:24:53.173 a403 Delete type=2 #191
+2023/10/22-00:24:53.174 a403 Manual compaction at level-0 from '\x00F\x00\x00\x05' @ 119349 : 1 .. '\x00F\x00\x00\x00' @ 0 : 0; will stop at (end)
+2023/10/22-00:24:53.184 11903 Level-0 table #194: started
+2023/10/22-00:24:53.206 11903 Level-0 table #194: 1401 bytes OK
+2023/10/22-00:24:53.248 11903 Delete type=2 #188
+2023/10/22-00:24:53.248 11903 Delete type=0 #190
+2023/10/22-00:24:53.249 11903 Manual compaction at level-0 from '\x00F\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00G\x00\x00\x00' @ 0 : 0; will stop at '\x00F\x00\x00\x05' @ 119447 : 0
+2023/10/22-00:24:53.249 11903 Compacting 1@0 + 1@1 files
+2023/10/22-00:24:53.326 11903 Generated table #195@0: 50951 keys, 1062280 bytes
+2023/10/22-00:24:53.326 11903 Compacted 1@0 + 1@1 files => 1062280 bytes
+2023/10/22-00:24:53.367 11903 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/10/22-00:24:53.367 11903 Delete type=2 #194
+2023/10/22-00:24:53.368 11903 Manual compaction at level-0 from '\x00F\x00\x00\x05' @ 119447 : 0 .. '\x00G\x00\x00\x00' @ 0 : 0; will stop at (end)

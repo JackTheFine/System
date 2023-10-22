@@ -1,0 +1,25 @@
+2023/10/22-00:21:46.469 a903 Reusing MANIFEST /Users/jackmaradon/Documents/GitHub/System/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/10/22-00:21:46.470 a903 Recovering log #165
+2023/10/22-00:21:46.490 a903 Reusing old log /Users/jackmaradon/Documents/GitHub/System/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000165.log 
+2023/10/22-00:21:46.491 a903 Delete type=2 #164
+2023/10/22-00:21:57.333 11d03 Level-0 table #170: started
+2023/10/22-00:21:57.361 11d03 Level-0 table #170: 177801 bytes OK
+2023/10/22-00:21:57.400 11d03 Delete type=0 #165
+2023/10/22-00:21:57.400 11d03 Manual compaction at level-0 from '\x00?\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00@\x00\x00\x00' @ 0 : 0; will stop at '\x00@\x00\x00\x05' @ 102830 : 1
+2023/10/22-00:21:57.401 11d03 Compacting 1@0 + 1@1 files
+2023/10/22-00:21:57.460 11d03 Generated table #171@0: 45502 keys, 920156 bytes
+2023/10/22-00:21:57.460 11d03 Compacted 1@0 + 1@1 files => 920156 bytes
+2023/10/22-00:21:57.498 11d03 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/10/22-00:21:57.500 11d03 Delete type=2 #170
+2023/10/22-00:21:57.501 11d03 Manual compaction at level-0 from '\x00@\x00\x00\x05' @ 102830 : 1 .. '\x00@\x00\x00\x00' @ 0 : 0; will stop at (end)
+2023/10/22-00:21:57.511 1ff03 Level-0 table #173: started
+2023/10/22-00:21:57.531 1ff03 Level-0 table #173: 1533 bytes OK
+2023/10/22-00:21:57.568 1ff03 Delete type=2 #167
+2023/10/22-00:21:57.569 1ff03 Delete type=0 #169
+2023/10/22-00:21:57.569 1ff03 Manual compaction at level-0 from '\x00@\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00A\x00\x00\x00' @ 0 : 0; will stop at '\x00@\x00\x00\x05' @ 102936 : 0
+2023/10/22-00:21:57.569 1ff03 Compacting 1@0 + 1@1 files
+2023/10/22-00:21:57.644 1ff03 Generated table #174@0: 45500 keys, 920351 bytes
+2023/10/22-00:21:57.644 1ff03 Compacted 1@0 + 1@1 files => 920351 bytes
+2023/10/22-00:21:57.682 1ff03 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/10/22-00:21:57.682 1ff03 Delete type=2 #173
+2023/10/22-00:21:57.683 1ff03 Manual compaction at level-0 from '\x00@\x00\x00\x05' @ 102936 : 0 .. '\x00A\x00\x00\x00' @ 0 : 0; will stop at (end)
