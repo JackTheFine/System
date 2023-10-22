@@ -3,3 +3,5 @@
 /node_modules/*
 config.json
 replit.nix
+package-lock.json
+package.json
