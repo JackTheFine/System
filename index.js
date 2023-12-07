@@ -13,7 +13,7 @@ app.set("json spaces", 4);
 app.use(express.static("public", { extensions: ['html'] }));
 app1.use(express.static("2048", { extensions: ['html'] }));
 
-//require("./bots/mybot/index.js")
+require("./bots/mybot/index.js")
 var myBot = db.get("botOn");
 var flyvalle = db.get("botOn1");
 var rambambot = db.get("botOn2");
