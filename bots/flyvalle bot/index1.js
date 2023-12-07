@@ -1,4 +1,5 @@
-
+const db = require("../../db.js");
+db.loadFromFile("./db.json");
 const { Client, Events, GatewayIntentBits, Collection, EmbedBuilder, ActivityType } = require('discord.js');
 const fs = require('node:fs');
 const { token1 } = require('../../config.json');
@@ -55,3 +56,4 @@ client1.on(Events.InteractionCreate, async interaction => {
   }
 });
 client1.login(token1)
+db.set("botOn1","Up")
