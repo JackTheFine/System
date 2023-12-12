@@ -122,8 +122,11 @@ $('#setup').modal('show');
 			pausedtime = pausedtime + (new Date().getTime() - pauseStarttime);
 			
 			updatedFinishTime = moment(finishTime).add(pausedtime,'ms');
+			updatedFinishTime2 = moment(finishTime).add(pausedtime,'ms').add(-2700,'s');
 			$("#fin-time").html(moment(updatedFinishTime).format("h:mm a"));
-			$("#fin-time").effect("highlight", {}, 1500);			
+			$("#start-time").html(moment(updatedFinishTime2).format("h:mm a"));
+			$("#fin-time").effect("highlight", {}, 1500);	
+			$("#start-time").effect("highlight", {}, 1500);			
 			timers.push(setTimeout(updateRemainingTime(), 1000));
 			$("#buttonPause").html('<i class="icon-pause icon-white"></i> Pause');
 		} else {
