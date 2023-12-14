@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>rambam.jackthefine.dev</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-  <div class="marquee">
-  <!--<h1 style="color:#${color};">ari misels</h1>-->
-    <image class="text-center" src="raven.png"><!--<h1 style="font-size: 5rem;">coach azose</h1>--></image>
-</div>
-</body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js">
-  </script>
-  <script> 
-    (function ($, window, undefined) {
+(function ($, window, undefined) {
 	$.fn.marqueeify = function (options) {
 		var settings = $.extend({
 			horizontal: true,
@@ -87,10 +68,8 @@ $(document).ready( function() {
 	$('.marquee').marqueeify({
 		speed: 300,
 		bumpEdge: function () {
-			var newColor = "hsl(" + Math.floor(Math.random()*360) + ", 100%)";
+			var newColor = "hsl(" + Math.floor(Math.random()*360) + ", 100%, 50%)";
 			$('.marquee .logo').css('fill', newColor);
 		}
 	});
 });
-  </script>
-</html>
