@@ -45,11 +45,6 @@ module.exports = {
             .setRequired(true)
         )
         .addStringOption(option =>
-          option.setName("classes")
-            .setDescription("Classes for the flight")
-            .setRequired(true)
-        )
-        .addStringOption(option =>
           option.setName("aircraft")
             .setDescription("Aircraft to be used")
             .setRequired(true)
@@ -94,11 +89,6 @@ module.exports = {
             .setRequired(true)
         )
         .addStringOption(option =>
-          option.setName("classes")
-            .setDescription("New Classes for the Flight")
-            .setRequired(true)
-        )
-        .addStringOption(option =>
           option.setName("aircraft")
             .setDescription("New Aircraft to be used")
             .setRequired(true)
@@ -125,7 +115,6 @@ module.exports = {
             !interaction.options.getString("departure") ||
             !interaction.options.getString("arrival") ||
             !interaction.options.getString("gate") ||
-            !interaction.options.getString("classes") ||
             !interaction.options.getString("aircraft")
           ) return interaction.editReply({ content: "Missing arguments." });
 
@@ -141,7 +130,6 @@ module.exports = {
             departure: interaction.options.getString("departure"),
             arrival: interaction.options.getString("arrival"),
             gate: interaction.options.getString("gate"),
-            classes: interaction.options.getString("classes"),
             aircraft: interaction.options.getString("aircraft")
           }
 
@@ -173,7 +161,6 @@ module.exports = {
             !interaction.options.getString("departure") ||
             !interaction.options.getString("arrival") ||
             !interaction.options.getString("gate") ||
-            !interaction.options.getString("classes") ||
             !interaction.options.getString("aircraft")
           ) return interaction.editReply({ content: "Missing arguments.", ephemeral: true });
 
@@ -189,7 +176,6 @@ module.exports = {
             departure: interaction.options.getString("departure"),
             arrival: interaction.options.getString("arrival"),
             gate: interaction.options.getString("gate"),
-            classes: interaction.options.getString("classes"),
             aircraft: interaction.options.getString("aircraft"),
             messageId: flights[id].messageId
           }
@@ -265,7 +251,6 @@ function generateEmbed(flight) {
       { name: "Departure", value: flight.departure, inline: true },
       { name: "Arrival", value: flight.arrival, inline: true },
       { name: "Gate", value: flight.gate, inline: true },
-      { name: "Classes", value: flight.classes, inline: true },
       { name: "Aircraft", value: flight.aircraft, inline: true }
     )
     .setFooter({ text: "Flight ID: " + flight.id });
