@@ -24,7 +24,7 @@ for (const file of commandFiles) {
 
 client1.once(Events.ClientReady, () => {
   console.log(`Ready! (logged into ${client1.user.tag})`);
-  client1.user.setPresence({activities: [{ name: `ary code better`, type: ActivityType.Watching}], status: 'idle'})
+  client1.user.setPresence({activities: [{ name: `flights`, type: ActivityType.Watching}], status: 'idle'})
 //client1.channels.cache.get("965490644967645204").messages.fetch("1056526111854571530").then(message => message.delete())
   /*const a = new EmbedBuilder()
 	.setColor("#0096FF")
