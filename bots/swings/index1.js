@@ -2,6 +2,7 @@ const db = require("../../db.js");
 db.loadFromFile("./db.json");
 const { Client, Events, GatewayIntentBits, Collection, EmbedBuilder, ActivityType } = require('discord.js');
 const fs = require('node:fs');
+const discord = require("discord.js")
 const { token5 } = require('../../config.json');
 require("./deploy-commands1")
 
@@ -37,10 +38,11 @@ client1.once(Events.ClientReady, () => {
 });
 
 client1.on(Events.InteractionCreate, async interaction => {
-  if (!interaction.isCommand()) return;
+  if (interaction.isCommand()) {
 
   const commandb = client1.commandsb.get(interaction.commandName);
   const command = client1.commands.get(interaction.commandName);
+  const cmd = "general"
 
 
   try {
@@ -54,5 +56,31 @@ client1.on(Events.InteractionCreate, async interaction => {
     console.error(error);
     return interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
   }
+} else if (interaction.isButton()) {
+  interaction.deferReply({ ephemeral: true });
+  const id = interaction.customId;
+  switch(id) {
+    case "general":
+      interaction.guild.channels.create({
+        name: `ticket-${interaction.user.tag}`,
+        type: discord.ChannelType.GuildText,
+        permissionOverwrites: [{
+                id: interaction.guild.roles.everyone,
+                deny: [discord.PermissionFlagsBits.ViewChannel]},
+                {id: interaction.user.id,
+                allow: [discord.PermissionFlagsBits.ViewChannel]}]
+    }).then(async channel => {
+        await channel.setParent('1202095740927868958');
+        await channel.send({ content: `Ticket-${interaction.user.tag} (Will make an embed here!!)` });
+        await interaction.editReply({ content: `Created Ticket! <#${channel.id}>`});
+  
+    }).catch(async err => {
+  
+        await console.log(err)
+  
+    });
+      break;
+  }
+} else return
 });
 client1.login(token5)
