@@ -105,7 +105,7 @@ module.exports = {
     ),
   async execute(interaction, client1) {
     await interaction.deferReply({ ephemeral: true });
-    if (interaction.member.roles.cache.has("1202102337330483271") || interaction.use == "JackTheFine#0205") {
+    if (interaction.member.roles.cache.has("1202102337330483271")) {
       switch (interaction.options._subcommand) {
         case "create":
           if (
