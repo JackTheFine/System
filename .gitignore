@@ -6,4 +6,4 @@ replit.nix
 package-lock.json
 package.json
 
-bots/swings/swings/db.json
+/bots/swings/swings/db.json
