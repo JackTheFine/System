@@ -23,8 +23,8 @@ for (const file of commandFiles) {
 
 const rest1 = new REST({ version: '10' }).setToken(token5);
 try {
-  rest1.put(Routes.applicationCommands(clientId5, guildId5), { body: commandsb });
   rest1.put(Routes.applicationCommands(clientId5), { body: commands });
+  rest1.put(Routes.applicationGuildCommands(clientId5, guildId5), { body: commandsb })
   db.set("botOn1","Up")
   console.log('Successfully registered swings application commands.');
 } catch (error) {

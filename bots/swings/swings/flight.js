@@ -1,5 +1,5 @@
-const { EmbedBuilder } = require("discord.js");
-const { SlashCommandBuilder } = require("@discordjs/builders");
+const discord = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder } = require("@discordjs/builders");
 const db = require("../db.js");
 db.loadFromFile("./bots/swings/swings/db.json");
 if (!db.alreadyExists()) {
@@ -102,10 +102,15 @@ module.exports = {
             .setDescription("Flight ID")
             .setRequired(true)
         )
+        .addBooleanOption(option =>
+          option.setName("deletechannel")
+            .setDescription("Delete The Flight channel along with the post?")
+            .setRequired(true)
+        )
     ),
   async execute(interaction, client1) {
     await interaction.deferReply({ ephemeral: true });
-    if (interaction.member.roles.cache.has("1202806325860507709")) {
+    if (interaction.member.roles.cache.has("1203046307489652756")) {
       switch (interaction.options._subcommand) {
         case "create":
           if (
@@ -136,10 +141,22 @@ module.exports = {
           var reply = await client1.channels.cache.get("1202190354250473512").send({ embeds: [generateEmbed(flights[id])] });
           flights[id].messageId = reply.id;
 
-          db.set("flights", flights);
-          db.save();
+          const sdate = interaction.options.getString("date").split('/')
+          interaction.guild.channels.create({
+            name: `flight-${sdate[0]}-${sdate[1]}-${sdate[2]}-${interaction.options.getString("time")}`,
+            type: discord.ChannelType.GuildText,
+            parent: "1199292775326306425",
+        }).then(async channel => {
+            await interaction.editReply({ content: `Flight created. Flight ID: ${id}, Channel: <#${channel.id}>`, ephemeral: true });
+            flights[id].channelId = channel.id;
 
-          interaction.editReply({ content: "Flight created. Flight ID: " + id, ephemeral: true });
+          db.set("flights", flights);
+          db.save(); 
+        }).catch(async err => {
+      
+            await console.log(err)
+      
+        });
 
           if (db.get("noFlightsMessageId")) {
             client1.channels.cache.get("1202190354250473512").messages.fetch(db.get("noFlightsMessageId")).then(message => message.delete());
@@ -177,7 +194,8 @@ module.exports = {
             arrival: interaction.options.getString("arrival"),
             gate: interaction.options.getString("gate"),
             aircraft: interaction.options.getString("aircraft"),
-            messageId: flights[id].messageId
+            messageId: flights[id].messageId,
+            channelId
           }
 
           client1.channels.cache.get("1202190354250473512").messages.fetch(flights[id].messageId).then(message => message.edit({ embeds: [generateEmbed(flights[id])] }));
@@ -202,16 +220,19 @@ module.exports = {
           if (!flights[id]) return interaction.editReply({ content: "Flight not found.", ephemeral: true });
 
           client1.channels.cache.get("1202190354250473512").messages.fetch(flights[id].messageId).then(message => message.delete());
-          delete flights[id];
 
           db.set("flights", flights);
           db.save();
-
+          if (interaction.options.getBoolean("deletechannel") == true) {
+          const fetchedChannel = interaction.guild.channels.cache.get(flights[id].channelId);
+          fetchedChannel.delete();
+          }
+          delete flights[id];
           interaction.editReply({ content: "Flight deleted.", ephemeral: true });
 
           if (!Object.values(flights).length) {
             const a = new EmbedBuilder()
-              .setColor("#0096FF")
+            .setColor(0x0096FF)
               .setAuthor({ name: "Flight Manager" })
               .setTitle(" Flight Status")
               .setDescription("There are no current flights at this time, check back later for new flights. This message will update when a new flight is created in our systems.")
@@ -243,7 +264,7 @@ function generateEmbed(flight) {
   var embed = new EmbedBuilder()
     .setAuthor({ name: "Flight Manager" })
     .setTitle("Flight Information")
-    .setColor("#0096FF")
+    .setColor(0x0096FF)
     .addFields(
       { name: `Host`, value: flight.host, inline: true },
       { name: "Time", value: flight.time, inline: true },
