@@ -1,8 +1,9 @@
 const db = require("../../db.js");
 db.loadFromFile("./db.json");
-const { Client, Events, GatewayIntentBits, Collection, EmbedBuilder, ActivityType } = require('discord.js');
+const { Client, Events, GatewayIntentBits, ActionRowBuilder, ButtonBuilder, Collection, EmbedBuilder, ActivityType } = require('discord.js');
 const fs = require('node:fs');
 const discord = require("discord.js")
+const { ButtonStyle } = require("discord.js")
 const { token5 } = require('../../config.json');
 require("./deploy-commands1")
 
@@ -57,10 +58,11 @@ client1.on(Events.InteractionCreate, async interaction => {
     return interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
   }
 } else if (interaction.isButton()) {
-  interaction.deferReply({ ephemeral: true });
   const id = interaction.customId;
-  switch(id) {
+  const buttonthing = id.split(' ')
+  switch(buttonthing[0]) {
     case "general":
+      interaction.deferReply({ ephemeral: true})
       interaction.guild.channels.create({
         name: `ticket-${interaction.user.tag}`,
         type: discord.ChannelType.GuildText,
@@ -68,10 +70,33 @@ client1.on(Events.InteractionCreate, async interaction => {
                 id: interaction.guild.roles.everyone,
                 deny: [discord.PermissionFlagsBits.ViewChannel]},
                 {id: interaction.user.id,
-                allow: [discord.PermissionFlagsBits.ViewChannel]}]
+                allow: [discord.PermissionFlagsBits.ViewChannel]},
+                {id: "1202801668656472136",
+                allow: [discord.PermissionFlagsBits.ViewChannel]}],
+        parent: "1202801786310631424",
     }).then(async channel => {
-        await channel.setParent('1202095740927868958');
-        await channel.send({ content: `Ticket-${interaction.user.tag} (Will make an embed here!!)` });
+        const { EmbedBuilder } = require('discord.js');
+
+// inside a command, event listener, etc.
+const embed = new EmbedBuilder()
+	.setColor(0x0099FF)
+	.setTitle(`${interaction.user.tag}'s Ticket`)
+	.setAuthor({ name: 'Ticket System' })
+	.setDescription('Hello! Please describe what you need, it will take a bit to respond so please be patient!')
+	.setFooter({ text: 'StellarWings Assistant' });
+
+        const msg = await channel.send({ embeds: [embed] });
+  const claim = new ButtonBuilder()
+	.setCustomId(`claim ${msg.id} ${interaction.user.tag}`)
+	.setLabel('Claim 🙋‍♂️')
+	.setStyle(ButtonStyle.Success);
+  const closeticket = new ButtonBuilder()
+	.setCustomId(`close ${msg.id} ${interaction.user.id}`)
+	.setLabel('Close Ticket')
+	.setStyle(ButtonStyle.Danger);
+	 const row = new ActionRowBuilder()
+	.addComponents(claim, closeticket);
+        msg.edit({ embeds: [embed], components: [row] })
         await interaction.editReply({ content: `Created Ticket! <#${channel.id}>`});
   
     }).catch(async err => {
@@ -80,6 +105,65 @@ client1.on(Events.InteractionCreate, async interaction => {
   
     });
       break;
+      case "claim":
+        if (interaction.member.roles.cache.has("1202801668656472136")) {
+        interaction.reply({ content: "Ticket Claimed",ephemeral: true })
+        interaction.channel.send({ content: `🙋‍♂️ | Your ticket will be handled by ${interaction.user.tag}.` })
+        const msgid = buttonthing[1];
+        const claim = new ButtonBuilder()
+        .setCustomId(`claim ${msgid} ${buttonthing[2]}`)
+        .setLabel('Claim 🙋‍♂️')
+        .setStyle(ButtonStyle.Success)
+        .setDisabled(true);
+        const closeticket = new ButtonBuilder()
+        .setCustomId(`close ${msgid} ${buttonthing[2]}`)
+        .setLabel('Close Ticket')
+        .setStyle(ButtonStyle.Danger);
+         const row = new ActionRowBuilder()
+        .addComponents(claim, closeticket);
+        const embed = new EmbedBuilder()
+	.setColor(0x0099FF)
+	.setTitle(`${buttonthing[2]}'s Ticket`)
+	.setAuthor({ name: 'Ticket System' })
+	.setDescription('Here please describe what you need, it will take a bit to respond so please be patient!')
+	.setFooter({ text: 'StellarWings Assistant' });
+  client1.channels.cache.get(interaction.channelId).messages.edit(msgid, {components: [row], embeds: [embed]})
+
+
+        } else interaction.reply({ content: "Invalid Permissions.",ephemeral: true })
+        break;
+      case "close":
+        interaction.reply({ content: "Preparing...", ephemeral: true });
+        if (interaction.member.roles.cache.has("1202801668656472136")) {
+        const embed = new EmbedBuilder()  
+	.setColor(0x0099FF)
+	.setTitle(`Close ticket`)
+	.setAuthor({ name: 'Ticket System' })
+	.setDescription(`${interaction.user.tag} would like to close this ticket.`)
+	.setFooter({ text: 'StellarWings Assistant' });
+  const msg = await interaction.channel.send({ embeds: [embed] });
+  const finalclose = new ButtonBuilder()
+        .setCustomId(`finalclose ${interaction.channelId}`)
+        .setLabel('Close Ticket')
+        .setStyle(ButtonStyle.Danger);
+        const cancel = new ButtonBuilder()
+        .setCustomId(`cancel ${msg.id}`)
+        .setLabel('Cancel')
+        .setStyle(ButtonStyle.Secondary);
+         const row = new ActionRowBuilder()
+        .addComponents(finalclose, cancel);
+        msg.edit({ content: `<@${buttonthing[2]}>`, embeds: [embed], components: [row] })
+}
+        break;
+        case "finalclose":
+        interaction.channel.delete()
+          break;
+        case "cancel":
+          client1.channels.fetch(interaction.channelId).then(channel => {
+            channel.messages.delete(buttonthing[1]);
+        });
+          break;
+      
   }
 } else return
 });

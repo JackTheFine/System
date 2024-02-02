@@ -35,7 +35,7 @@ module.exports = {
         ),
 
   async execute(interaction, client) {
-    if (interaction.member.roles.cache.has("1202102337330483271")) {
+    if (interaction.member.roles.cache.has("1202803806942007349")) {
 const userAt = interaction.options.getUser("user");
 const userId = userAt.id;
 const roleName = interaction.options.getString("role");
@@ -79,6 +79,6 @@ if (member) {
 }
   break; 
     }
-  }
+  } else interaction.reply({ content: "Invalid Permissions", ephemeral: true})
   }
 }

@@ -105,7 +105,7 @@ module.exports = {
     ),
   async execute(interaction, client1) {
     await interaction.deferReply({ ephemeral: true });
-    if (interaction.member.roles.cache.has("1202102337330483271")) {
+    if (interaction.member.roles.cache.has("1202806325860507709")) {
       switch (interaction.options._subcommand) {
         case "create":
           if (
@@ -133,7 +133,7 @@ module.exports = {
             aircraft: interaction.options.getString("aircraft")
           }
 
-          var reply = await client1.channels.cache.get("1202095756367114391").send({ embeds: [generateEmbed(flights[id])] });
+          var reply = await client1.channels.cache.get("1202190354250473512").send({ embeds: [generateEmbed(flights[id])] });
           flights[id].messageId = reply.id;
 
           db.set("flights", flights);
@@ -142,7 +142,7 @@ module.exports = {
           interaction.editReply({ content: "Flight created. Flight ID: " + id, ephemeral: true });
 
           if (db.get("noFlightsMessageId")) {
-            client1.channels.cache.get("1202095756367114391").messages.fetch(db.get("noFlightsMessageId")).then(message => message.delete());
+            client1.channels.cache.get("1202190354250473512").messages.fetch(db.get("noFlightsMessageId")).then(message => message.delete());
             db.set("noFlightsMessageId", null);
             db.save();
           }
@@ -150,7 +150,7 @@ module.exports = {
             .setAuthor({ name: `${interaction.user.tag}` })
             .setTitle("Flight Created")
             .setDescription(`${id}`)
-          client1.channels.cache.get("1202101890964533258").send({ embeds: [b] })
+          client1.channels.cache.get("1202296366177718303").send({ embeds: [b] })
           break;
         case "edit":
           if (
@@ -180,7 +180,7 @@ module.exports = {
             messageId: flights[id].messageId
           }
 
-          client1.channels.cache.get("1202095756367114391").messages.fetch(flights[id].messageId).then(message => message.edit({ embeds: [generateEmbed(flights[id])] }));
+          client1.channels.cache.get("1202190354250473512").messages.fetch(flights[id].messageId).then(message => message.edit({ embeds: [generateEmbed(flights[id])] }));
 
           db.set("flights", flights);
           db.save();
@@ -190,7 +190,7 @@ module.exports = {
             .setAuthor({ name: `${interaction.user.tag}` })
             .setTitle("Flight Edited")
             .setDescription(`${id}`)
-          client1.channels.cache.get("1202101890964533258").send({ embeds: [d] })
+          client1.channels.cache.get("1202296366177718303").send({ embeds: [d] })
           break;
         case "delete":
           if (
@@ -201,7 +201,7 @@ module.exports = {
           var id = interaction.options.getString("id");
           if (!flights[id]) return interaction.editReply({ content: "Flight not found.", ephemeral: true });
 
-          client1.channels.cache.get("1202095756367114391").messages.fetch(flights[id].messageId).then(message => message.delete());
+          client1.channels.cache.get("1202190354250473512").messages.fetch(flights[id].messageId).then(message => message.delete());
           delete flights[id];
 
           db.set("flights", flights);
@@ -217,7 +217,7 @@ module.exports = {
               .setDescription("There are no current flights at this time, check back later for new flights. This message will update when a new flight is created in our systems.")
               .setFooter({ text: "Flight Manager | Last updated:" })
               .setTimestamp()
-            var reply = await client1.channels.cache.get("1202095756367114391").send({ embeds: [a] });
+            var reply = await client1.channels.cache.get("1202190354250473512").send({ embeds: [a] });
             db.set("noFlightsMessageId", reply.id);
             db.save();
           }
@@ -225,7 +225,7 @@ module.exports = {
             .setAuthor({ name: `${interaction.user.tag}` })
             .setTitle("Flight Deleted")
             .setDescription(`${id}`)
-          client1.channels.cache.get("1202101890964533258").send({ embeds: [c] })
+          client1.channels.cache.get("1202296366177718303").send({ embeds: [c] })
           break;
       }
     } else {
@@ -234,7 +234,7 @@ module.exports = {
             .setAuthor({ name: "Invalid Permissions" })
             .setTitle(`${interaction.user.tag}`)
             .setDescription(`Attempted to create/edit/delete a flight.`)
-          return client1.channels.cache.get("1202101890964533258").send({ embeds: [d] })
+          return client1.channels.cache.get("1202296366177718303").send({ embeds: [d] })
     }
   }
 }
