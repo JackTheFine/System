@@ -150,7 +150,7 @@ module.exports = {
             .setAuthor({ name: `${interaction.user.tag}` })
             .setTitle("Flight Created")
             .setDescription(`${id}`)
-          client1.channels.cache.get("1202296366177718303").send({ embeds: [b] })
+          client1.channels.cache.get("1199292900236873778").send({ embeds: [b] })
           break;
         case "edit":
           if (
@@ -190,7 +190,7 @@ module.exports = {
             .setAuthor({ name: `${interaction.user.tag}` })
             .setTitle("Flight Edited")
             .setDescription(`${id}`)
-          client1.channels.cache.get("1202296366177718303").send({ embeds: [d] })
+          client1.channels.cache.get("1199292900236873778").send({ embeds: [d] })
           break;
         case "delete":
           if (
@@ -225,7 +225,7 @@ module.exports = {
             .setAuthor({ name: `${interaction.user.tag}` })
             .setTitle("Flight Deleted")
             .setDescription(`${id}`)
-          client1.channels.cache.get("1202296366177718303").send({ embeds: [c] })
+          client1.channels.cache.get("1199292900236873778").send({ embeds: [c] })
           break;
       }
     } else {
@@ -234,7 +234,7 @@ module.exports = {
             .setAuthor({ name: "Invalid Permissions" })
             .setTitle(`${interaction.user.tag}`)
             .setDescription(`Attempted to create/edit/delete a flight.`)
-          return client1.channels.cache.get("1202296366177718303").send({ embeds: [d] })
+          return client1.channels.cache.get("1199292900236873778").send({ embeds: [d] })
     }
   }
 }

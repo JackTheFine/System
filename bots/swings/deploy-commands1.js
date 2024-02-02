@@ -13,10 +13,10 @@ for (const file of commandbFiles) {
 }
 const commands = [];
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync('./bots/swings/swingsglobal').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
-  const command = require(`../../commands/${file}`);
+  const command = require(`./swingsglobal/${file}`);
   commands.push(command.data.toJSON());
 
 }
@@ -24,6 +24,7 @@ for (const file of commandFiles) {
 const rest1 = new REST({ version: '10' }).setToken(token5);
 try {
   rest1.put(Routes.applicationCommands(clientId5, guildId5), { body: commandsb });
+  rest1.put(Routes.applicationCommands(clientId5), { body: commands });
   db.set("botOn1","Up")
   console.log('Successfully registered swings application commands.');
 } catch (error) {

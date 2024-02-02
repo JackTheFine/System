@@ -17,10 +17,10 @@ for (const file of commandbFiles) {
   client1.commandsb.set(commandb.data.name, commandb);
 }
 client1.commands = new Collection();
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync('./bots/swings/swingsglobal').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
-  const command = require(`../../commands/${file}`);
+  const command = require(`./swingsglobal/${file}`);
   client1.commands.set(command.data.name, command);
 }
 

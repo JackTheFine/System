@@ -1,5 +1,5 @@
 
 {
   "watch": ["index.js", "public/", "commands/", "bots/"],
-  "ext": "js, css, json, html, txt"
+  "ext": "js, css, html, txt"
 }
