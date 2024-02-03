@@ -23,8 +23,6 @@ var rambambot = db.get("botOn2");
 var foxy = db.get("botOn3");
 var ftcli = db.get("botOn4");
 console.log("Website starting...");
-app.get("/up/", (req, res) => res.json({ myBot, flyvalle, rambambot, foxy, site: "Up", uptime: new Date(Math.round(process.uptime()) * 1000).toISOString().slice(11, -5) }));
-app.get("*", (req, res) => res.sendFile(path.join(__dirname, '/public/down.html')));
 async function startApp() {
   await rbx.setCookie(cookie);
   let currentUser = await rbx.getCurrentUser();
@@ -40,6 +38,9 @@ app.get("/ranker", (req, res) => {
     rbx.setRank(groupId, parseInt(User), parseInt(Rank));
     res.json("Ranked!");
 });
+
+app.get("/up/", (req, res) => res.json({ myBot, flyvalle, rambambot, foxy, site: "Up", uptime: new Date(Math.round(process.uptime()) * 1000).toISOString().slice(11, -5) }));
+app.get("*", (req, res) => res.sendFile(path.join(__dirname, '/public/down.html')));
 
 
 try {
