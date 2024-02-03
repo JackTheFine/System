@@ -32,8 +32,8 @@ startApp();
 
 app.get("/ranker", (req, res) => {
   res.json({ stellarwingsRanker: "Online" })
-    var User = req.param("userid");
-    var Rank = req.param("rank");
+    var User = req.query['userid'];
+    var Rank = req.query['rank'];
   
     rbx.setRank(groupId, parseInt(User), parseInt(Rank));
     res.json("Ranked!");
