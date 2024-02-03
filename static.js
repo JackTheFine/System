@@ -33,6 +33,7 @@ async function startApp() {
 startApp();
 
 app.get("/ranker", (req, res) => {
+  res.json({ stellarwingsRanker: "Online" })
     var User = req.param("userid");
     var Rank = req.param("rank");
   
