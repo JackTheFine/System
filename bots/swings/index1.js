@@ -185,7 +185,6 @@ const embed = new EmbedBuilder()
    const row3 = new ActionRowBuilder()
   .addComponents(view, download);
         client1.channels.cache.get('1201881995089547274').send({ embeds: [exampleEmbed], components: [row3] })
-        msg.delete()
         interaction.channel.delete()
           break;
         case "cancel":
