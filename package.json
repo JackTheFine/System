@@ -15,6 +15,7 @@
     "@replit/database": "^2.0.4",
     "discord-api-types": "^0.37.12",
     "discord-gamecord": "^2.1.0",
+    "discord-html-transcripts": "^3.2.0",
     "discord-jokes": "^4.0.0",
     "discord.js": "^14.14.1",
     "discordaudio": "^2.8.7",

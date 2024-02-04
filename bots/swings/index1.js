@@ -2,6 +2,7 @@ const db = require("../../db.js");
 db.loadFromFile("./db.json");
 const { Client, Events, GatewayIntentBits, ActionRowBuilder, ButtonBuilder, Collection, EmbedBuilder, ActivityType } = require('discord.js');
 const fs = require('node:fs');
+const { createTranscript } = require('discord-html-transcripts')
 const discord = require("discord.js")
 const { ButtonStyle } = require("discord.js")
 const { token5 } = require('../../config.json');
@@ -143,7 +144,7 @@ const embed = new EmbedBuilder()
 	.setFooter({ text: 'StellarWings Assistant' });
   const msg = await interaction.channel.send({ embeds: [embed] });
   const finalclose = new ButtonBuilder()
-        .setCustomId(`finalclose ${interaction.channelId}`)
+        .setCustomId(`finalclose ${interaction.channelId} ${buttonthing[2]}`)
         .setLabel('Close Ticket')
         .setStyle(ButtonStyle.Danger);
         const cancel = new ButtonBuilder()
@@ -152,10 +153,39 @@ const embed = new EmbedBuilder()
         .setStyle(ButtonStyle.Secondary);
          const row = new ActionRowBuilder()
         .addComponents(finalclose, cancel);
-        msg.edit({ content: `<@${buttonthing[2]}>`, embeds: [embed], components: [row] })
+        msg.edit({ content: `<@${buttonthing[2]}>` })
+        msg.edit({  embeds: [embed], components: [row] })
 }
         break;
         case "finalclose":
+        interaction.deferReply({ ephemeral: true })
+        const file = await createTranscript(interaction.channel, {
+          returnBuffer: false,
+          filename: `${interaction.channel.name}-stellarwingstranscript.html`
+        })
+        const msg = await client1.channels.cache.get('1201881995089547274').send({ files: [file] })
+        const exampleEmbed = new EmbedBuilder()
+	.setColor(0x0099FF)
+	.setTitle('Ticket Closed')
+	.setAuthor({ name: 'Ticket System' })
+	.setDescription('This ticket was closed, use the buttons below to view/download transcript.')
+  .addFields(
+    { name: 'Ticket Owner', value: `${buttonthing[2]}`, inline: true },
+    { name: 'Ticket Name', value: `${interaction.channel.name}`, inline: true }
+  )
+	.setFooter({ text: 'Stellarwings Assistant' });
+  const view = new ButtonBuilder()
+  .setLabel('View Transcirpt')
+  .setURL(`https://mahto.id/chat-exporter?url=${msg.attachments.first()?.url}`)
+  .setStyle(ButtonStyle.Link);
+  const download = new ButtonBuilder()
+  .setLabel('Download Transcript')
+  .setURL(`${msg.attachments.first()?.url}`)
+  .setStyle(ButtonStyle.Link);
+   const row3 = new ActionRowBuilder()
+  .addComponents(view, download);
+        client1.channels.cache.get('1201881995089547274').send({ embeds: [exampleEmbed], components: [row3] })
+        msg.delete()
         interaction.channel.delete()
           break;
         case "cancel":
