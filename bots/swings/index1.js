@@ -88,7 +88,7 @@ const embed = new EmbedBuilder()
 
         const msg = await channel.send({ embeds: [embed] });
   const claim = new ButtonBuilder()
-	.setCustomId(`claim ${msg.id} ${interaction.user.tag}`)
+	.setCustomId(`claim ${msg.id} ${interaction.user.tag} ${interaction.user.id}`)
 	.setLabel('Claim 🙋‍♂️')
 	.setStyle(ButtonStyle.Success);
   const closeticket = new ButtonBuilder()
@@ -117,7 +117,7 @@ const embed = new EmbedBuilder()
         .setStyle(ButtonStyle.Success)
         .setDisabled(true);
         const closeticket = new ButtonBuilder()
-        .setCustomId(`close ${msgid} ${buttonthing[2]}`)
+        .setCustomId(`close ${msgid} ${buttonthing[3]}`)
         .setLabel('Close Ticket')
         .setStyle(ButtonStyle.Danger);
          const row = new ActionRowBuilder()
