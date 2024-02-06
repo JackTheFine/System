@@ -88,7 +88,7 @@ const embed = new EmbedBuilder()
 
         const msg = await channel.send({ embeds: [embed] });
   const claim = new ButtonBuilder()
-	.setCustomId(`claim ${msg.id} ${interaction.user}`)
+	.setCustomId(`claim ${msg.id} ${interaction.user.tag} ${interaction.user.id}`)
 	.setLabel('Claim 🙋‍♂️')
 	.setStyle(ButtonStyle.Success);
   const closeticket = new ButtonBuilder()
@@ -112,19 +112,19 @@ const embed = new EmbedBuilder()
         interaction.channel.send({ content: `🙋‍♂️ | Your ticket will be handled by ${interaction.user.tag}.` })
         const msgid = buttonthing[1];
         const claim = new ButtonBuilder()
-        .setCustomId(`claim ${msgid} ${buttonthing[2].tag}`)
+        .setCustomId(`claim ${msgid} ${buttonthing[2]}`)
         .setLabel('Claim 🙋‍♂️')
         .setStyle(ButtonStyle.Success)
         .setDisabled(true);
         const closeticket = new ButtonBuilder()
-        .setCustomId(`close ${msgid} ${buttonthing[2].id}`)
+        .setCustomId(`close ${msgid} ${buttonthing[3]}`)
         .setLabel('Close Ticket')
         .setStyle(ButtonStyle.Danger);
          const row = new ActionRowBuilder()
         .addComponents(claim, closeticket);
         const embed = new EmbedBuilder()
 	.setColor(0x0099FF)
-	.setTitle(`${buttonthing[2].tag}'s Ticket`)
+	.setTitle(`${buttonthing[2]}'s Ticket`)
 	.setAuthor({ name: 'Ticket System' })
 	.setDescription('Here please describe what you need, it will take a bit to respond so please be patient!')
 	.setFooter({ text: 'StellarWings Assistant' });
