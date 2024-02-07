@@ -7,10 +7,10 @@ var express = require("express")
 var express1 = require("express")
 const path = require("path")
 const { robloxcookie } = require('./config.json');
-const { robloxcookie1 } = require('./config.json');
+const { robloxcookie2 } = require('./config.json');
 var groupId = 33763450
 var cookie = robloxcookie
-var cookie1 = robloxcookie1
+var cookie1 = robloxcookie2
 
 const rbx = require("noblox.js");
 const rbx1 = require("noblox.js");
