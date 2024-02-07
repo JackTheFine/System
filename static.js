@@ -2,22 +2,16 @@ const db = require("./db.js");
 db.loadFromFile("./db.json");
 const app = require("express")();
 const app1 = require("express")();
-const app2 = require("express")();
 var express = require("express")
 var express1 = require("express")
 const path = require("path")
 const { robloxcookie } = require('./config.json');
-const { robloxcookie2 } = require('./config.json');
 var groupId = 33763450
-var groupId = 33829605
 var cookie = robloxcookie
-var cookie1 = robloxcookie2
 
 const rbx = require("noblox.js");
-const rbx1 = require("noblox.js");
 var port = "8080"
 var port1 = "8081"
-var port2 = "8082"
 
 app.set("json spaces", 4);
 
@@ -34,13 +28,7 @@ async function startApp() {
   let currentUser = await rbx.getCurrentUser();
   console.log(currentUser.UserName);
 }
-async function startApp1() {
-  await rbx1.setCookie(cookie1);
-  let currentUser = await rbx1.getCurrentUser();
-  console.log(currentUser.UserName);
-}
 startApp();
-startApp1();
 
 app.get("/ranker", (req, res) => {
   res.json({ stellarwingsRanker: "Online" })
@@ -48,14 +36,6 @@ app.get("/ranker", (req, res) => {
     var Rank = req.query['rank'];
   
     rbx.setRank(groupId, parseInt(User), parseInt(Rank));
-    res.json("Ranked!");
-});
-app2.get("/ranker", (req, res) => {
-  res.json({ quantumRanker: "Online" })
-    var User = req.query['userid'];
-    var Rank = req.query['rank'];
-  
-    rbx1.setRank(groupId, parseInt(User), parseInt(Rank));
     res.json("Ranked!");
 });
 
@@ -66,10 +46,8 @@ app.get("*", (req, res) => res.sendFile(path.join(__dirname, '/public/down.html'
 try {
   app.listen(port);
   app1.listen(port1);
-  app2.listen(port2);
   console.log(`Website on! Port: ${port}`);
   console.log(`L freshies on Port: ${port1}`);
-  console.log(`quantum on Port: ${port2}`);
 } catch (error) {
   console.error(error)
 }
