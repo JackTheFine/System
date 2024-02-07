@@ -34,12 +34,12 @@ async function startApp() {
   console.log(currentUser.UserName);
 }
 async function startApp1() {
-  //await rbx1.setCookie(cookie1);
-  //let currentUser = await rbx1.getCurrentUser();
- // console.log(currentUser.UserName);
+  await rbx1.setCookie(cookie1);
+  let currentUser = await rbx1.getCurrentUser();
+  console.log(currentUser.UserName);
 }
 startApp();
-//startApp1();
+startApp1();
 
 app.get("/ranker", (req, res) => {
   res.json({ stellarwingsRanker: "Online" })
@@ -54,7 +54,7 @@ app2.get("/ranker", (req, res) => {
     var User = req.query['userid'];
     var Rank = req.query['rank'];
   
-   // rbx1.setRank(groupId, parseInt(User), parseInt(Rank));
+    rbx1.setRank(groupId, parseInt(User), parseInt(Rank));
     res.json("Ranked!");
 });
 
