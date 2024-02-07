@@ -6,7 +6,7 @@ const { token } = require('../../config.json');
 require("./deploy-commands")
 require("../flyvalle bot/index1")
 require("../rambam bot/index2")
-require("../linkit/index3")
+//require("../linkit/index3")
 require("../swings/index1")
 require("../quantum/index1")
 
