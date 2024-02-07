@@ -9,6 +9,7 @@ const path = require("path")
 const { robloxcookie } = require('./config.json');
 const { robloxcookie2 } = require('./config.json');
 var groupId = 33763450
+var groupId = 33829605
 var cookie = robloxcookie
 var cookie1 = robloxcookie2
 
