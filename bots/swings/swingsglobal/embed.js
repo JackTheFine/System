@@ -18,7 +18,7 @@ module.exports = {
     const abcdefgh = interaction.options.getString('footer');
     const abc = new EmbedBuilder()
       .setAuthor({ name: `${abcd}` })
-      .setColor(abcdefg)
+      //.setColor(abcdefg)
       .setTitle(`${abcde}`)
       .setDescription(`${abcdef}`)
       .setFooter({ text: `${abcdefgh}` })
