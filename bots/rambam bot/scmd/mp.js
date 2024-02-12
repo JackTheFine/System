@@ -6,7 +6,7 @@ module.exports = {
     .setName('mp')
     .setDescription('dw about it')
     .addStringOption(option =>
-      option.setName('hmm?')
+      option.setName('hmm')
         .setDescription('what to say')
         .setRequired(true)),
 
