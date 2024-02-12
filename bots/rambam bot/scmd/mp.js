@@ -3,16 +3,16 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName('say')
-    .setDescription('repeats what you said')
+    .setName('mp')
+    .setDescription('dw about it')
     .addStringOption(option =>
-      option.setName('tosay')
+      option.setName('hmm?')
         .setDescription('what to say')
         .setRequired(true)),
 
   async execute(interaction, client) {
     const e = client.channels.cache.get('1075839058187657266');
-    const ttb = interaction.options.getString('tosay')
+    const ttb = interaction.options.getString('hmm')
     const text = ttb.split(' ').slice().join(' ');
     interaction.reply({ content: 'kk', ephemeral: true })
     e.send({content: `${text} -${interaction.member.displayName}`})
