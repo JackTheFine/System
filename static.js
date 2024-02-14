@@ -15,7 +15,7 @@ var port1 = "8081"
 
 app.set("json spaces", 4);
 
-app.use(express.static("public", { extensions: ['html'] }));
+//app.use(express.static("public", { extensions: ['html'] }));
 app1.use(express.static("2048", { extensions: ['html'] }));
 var myBot = db.get("botOn");
 var flyvalle = db.get("botOn1");
@@ -28,7 +28,7 @@ async function startApp() {
   let currentUser = await rbx.getCurrentUser();
   console.log(currentUser.UserName);
 }
-startApp();
+//startApp();
 
 app.get("/ranker", (req, res) => {
   res.json({ stellarwingsRanker: "Online" })
