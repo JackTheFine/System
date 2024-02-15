@@ -29,8 +29,8 @@
                     alert("The winner should be someone who is playing.")
                     return
                 }
-                if ( document.getElementById('teams').value >= "9" || document.getElementById('teams2').value >= "9" ||  document.getElementById('team').value >= "9" ) {
-                    alert("Please enter valid details.")
+                if (document.getElementById('teams').value == document.getElementById('teams2').value) {
+                    alert("A team cant play itself.")
                     return
                 }
                 console.log(`Game: ${document.getElementById('teams').value} VS ${document.getElementById('teams2').value}`)
