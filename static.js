@@ -39,7 +39,7 @@ app.get("/ranker", (req, res) => {
     rbx.setRank(groupId, parseInt(User), parseInt(Rank));
     res.json("Ranked!");
 });
-app.get("/madness/", (req, res) => res.sendFile(path.join(__dirname, '/public/madness.html')));
+app.get("/score/", (req, res) => res.sendFile(path.join(__dirname, '/public/madness.html')));
 app.get("/results/", (req, res) => {
   res.sendFile(path.join(__dirname, '/public/results.html'))
 })
