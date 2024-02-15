@@ -127,95 +127,25 @@
         </tbody>
       </table>
 <script>
+  $(document).ready(() => {
     fetch('/madness.json')
         .then(res => res.json())
         .then((data) => {
             const a = JSON.stringify(data)
             const b = a.split('"')
+            console.log(a, b)
 
-            
-            
-            document.getElementById("dta1").innerText = b[1]
-            document.getElementById("dta2").innerText = b[7]
-            document.getElementById("dta3").innerText = b[13]
-
-            document.getElementById("dta4").innerText = b[19]
-            document.getElementById("dta5").innerText = b[25]
-            document.getElementById("dta6").innerText = b[31]
-
-            document.getElementById("dta7").innerText = b[37]
-            document.getElementById("dta8").innerText = b[43]
-            document.getElementById("dta9").innerText = b[49]
-
-            document.getElementById("dta10").innerText = b[55]
-            document.getElementById("dta11").innerText = b[61]
-            document.getElementById("dta12").innerText = b[67]
-
-            document.getElementById("dta13").innerText = b[73]
-            document.getElementById("dta14").innerText = b[79]
-            document.getElementById("dta15").innerText = b[85]
-
-            document.getElementById("dta16").innerText = b[91]
-            document.getElementById("dta17").innerText = b[97]
-            document.getElementById("dta18").innerText = b[103]
-
-            document.getElementById("dta19").innerText = b[109]
-            document.getElementById("dta20").innerText = b[115]
-            document.getElementById("dta21").innerText = b[121]
-
-            document.getElementById("dta22").innerText = b[127]
-            document.getElementById("dta23").innerText = b[133]
-            document.getElementById("dta24").innerText = b[139]
-
-            document.getElementById("dta25").innerText = b[145]
-            document.getElementById("dta26").innerText = b[151]
-            document.getElementById("dta27").innerText = b[157]
-            document.getElementById("dta28").innerText = b[163]
-
-            document.getElementById("win1").innerText = b[5]
-            document.getElementById("win2").innerText = b[11]
-            document.getElementById("win3").innerText = b[17]
-
-            document.getElementById("win4").innerText = b[23]
-            document.getElementById("win5").innerText = b[29]
-            document.getElementById("win6").innerText = b[35]
-
-            document.getElementById("win7").innerText = b[41]
-            document.getElementById("win8").innerText = b[47]
-            document.getElementById("win9").innerText = b[53]
-
-            document.getElementById("win10").innerText = b[59]
-            document.getElementById("win11").innerText = b[65]
-            document.getElementById("win12").innerText = b[71]
-
-            document.getElementById("win13").innerText = b[77]
-            document.getElementById("win14").innerText = b[83]
-            document.getElementById("win15").innerText = b[89]
-
-            document.getElementById("win16").innerText = b[95]
-            document.getElementById("win17").innerText = b[101]
-            document.getElementById("win18").innerText = b[107]
-
-            document.getElementById("win19").innerText = b[113]
-            document.getElementById("win20").innerText = b[119]
-            document.getElementById("win21").innerText = b[125]
-
-            document.getElementById("win22").innerText = b[131]
-            document.getElementById("win23").innerText = b[137]
-            document.getElementById("win24").innerText = b[143]
-
-            document.getElementById("win25").innerText = b[149]
-            document.getElementById("win26").innerText = b[155]
-            document.getElementById("win27").innerText = b[161]
-            document.getElementById("win28").innerText = b[167]
-
-
+            for (let i = 0; i < 28; i++) {
+              $(`#dta${i + 1}`).html(Object.keys(data)[i]);
+              $(`#win${i + 1}`).html(Object.values(data)[i].winner);
+            }
 
         }).catch(err => console.error(err));
         setTimeout(reload, 5000)
         function reload() {
          location.reload()
         }
+  })
 </script>
   </body>
 </html>

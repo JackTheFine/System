@@ -33,6 +33,10 @@
                     alert("A team cant play itself.")
                     return
                 }
+                if (+document.getElementById('teams').value >= 17 || +document.getElementById('teams2').value >= 17) {
+                    alert("There isnt more than 16 teams.")
+                    return
+                }
                 console.log(`Game: ${document.getElementById('teams').value} VS ${document.getElementById('teams2').value}`)
                 console.log(`Winner: ${document.getElementById('team').value}`)
 
