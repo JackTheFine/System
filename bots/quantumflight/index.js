@@ -11,8 +11,7 @@ setInterval(async () => {
 	let content = ``;
 	data.forEach(list => content += list.desc + "\n\n");
   if (content == '') {
-	content = `There are no current flights at this time, check back later for new flights.
-This message will update every few minutes.`
+	return
 	}
 		webhookClient.editMessage(editmsg, { content, username: "Quantum Assistant", avatarURL: 'https://cdn.discordapp.com/avatars/1204908654784946236/feb86cf50354dc944a233ee7359639fb?size=1024', embeds: null});
 
