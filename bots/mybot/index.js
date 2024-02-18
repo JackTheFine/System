@@ -9,7 +9,7 @@ require("../rambam bot/index2")
 //require("../linkit/index3")
 require("../swings/index1")
 require("../quantum/index1")
-require("../quantumflight/index1")
+require("../quantumflight/index")
 //require("../spasy/index1")
 
 const Discord = require('discord.js');
