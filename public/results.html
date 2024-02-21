@@ -104,34 +104,6 @@
             <th id="dta23" scope="row"></th>
             <td id="win23"></td>
           </tr>
-          <tr>
-            <th id="dta24" scope="row"></th>
-            <td id="win24"></td>
-          </tr>
-          <tr>
-            <th id="dta25" scope="row"></th>
-            <td id="win25"></td>
-          </tr>
-          <tr>
-            <th id="dta26" scope="row"></th>
-            <td id="win26"></td>
-          </tr>
-          <tr>
-            <th id="dta27" scope="row"></th>
-            <td id="win27"></td>
-          </tr>
-          <tr>
-            <th id="dta28" scope="row"></th>
-            <td id="win28"></td>
-          </tr>
-          <tr>
-            <th id="dta29" scope="row"></th>
-            <td id="win29"></td>
-          </tr>
-          <tr>
-            <th id="dta30" scope="row"></th>
-            <td id="win30"></td>
-          </tr>
         </tbody>
       </table>
 <script>
@@ -143,7 +115,7 @@
             const b = a.split('"')
             console.log(a, b)
 
-            for (let i = 0; i < 30; i++) {
+            for (let i = 0; i < 23; i++) {
               $(`#dta${i + 1}`).html(Object.keys(data)[i]);
               $(`#win${i + 1}`).html(Object.values(data)[i].winner);
             }
