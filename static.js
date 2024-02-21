@@ -39,20 +39,6 @@ app.get("/ranker", (req, res) => {
     rbx.setRank(groupId, parseInt(User), parseInt(Rank));
     res.json("Ranked!");
 });
-app.get("/score/", (req, res) => res.sendFile(path.join(__dirname, '/public/madness.html')));
-app.get("/results/", (req, res) => {
-  res.sendFile(path.join(__dirname, '/public/results.html'))
-})
-app.get("/madness.json/", (req, res) => res.sendFile(path.join(__dirname, '/public/madness.json')));
-app.get("/madnesshandler/", (req, res) => {
-    res.sendFile(path.join(__dirname, './public/madnesshandler.html'))
-      var team1 = req.query['team1'];
-      var team2 = req.query['team2'];
-      var win = req.query['win'];
-      const db = JSON.parse(fs.readFileSync("./public/madness.json", "utf-8") || "");
-      db[`${team1} VS ${team2}`] = { winner: win };
-      fs.writeFileSync("./public/madness.json", JSON.stringify(db));
-  });
 
 app.get("/up/", (req, res) => res.json({ myBot, flyvalle, rambambot, foxy, site: "Up", uptime: new Date(Math.round(process.uptime()) * 1000).toISOString().slice(11, -5) }));
 app.get("*", (req, res) => res.sendFile(path.join(__dirname, '/public/down.html')));
