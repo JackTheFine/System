@@ -54,7 +54,7 @@
 
         let extensions =  [ "cs", "php", "css", "html", "js", "py", "json", "cpp", "xyz", "imaurl" ];
 
-        for await (const i of new Array(extensions.length)) {
+        for await (const i of new Array(4)) {
             let ext = extensions[Math.floor(Math.random() * extensions.length)];
             extensions = extensions.filter(x => x != ext);
 
