@@ -49,17 +49,12 @@
     }
 
     $(document).ready(async () => {
-        if (window.location.pathname == "/" || window.location.pathname == "/index") {
-            $("#jackthetext").html("jackthefine.");
-            $("#jacktheext").html("dev");
-            return;
-        }
 
         await changeText("jackthefine.", $("#jackthetext"))
 
-        let extensions =  [ "cs", "exe", "go", "html", "js", "py" ];
+        let extensions =  [ "cs", "php", "css", "html", "js", "py", "json" ];
 
-        for await (const i of new Array(3)) {
+        for await (const i of new Array(4)) {
             let ext = extensions[Math.floor(Math.random() * extensions.length)];
             extensions = extensions.filter(x => x != ext);
 
