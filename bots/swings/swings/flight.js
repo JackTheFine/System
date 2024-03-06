@@ -138,7 +138,7 @@ module.exports = {
             aircraft: interaction.options.getString("aircraft")
           }
 
-          var reply = await client1.channels.cache.get("1202190354250473512").send({ embeds: [generateEmbed(flights[id])] });
+          var reply = await client1.channels.cache.get("1214976120408113232").send({ embeds: [generateEmbed(flights[id])] });
           flights[id].messageId = reply.id;
 
           const sdate = interaction.options.getString("date").split('/')
@@ -159,7 +159,7 @@ module.exports = {
         });
 
           if (db.get("noFlightsMessageId")) {
-            client1.channels.cache.get("1202190354250473512").messages.fetch(db.get("noFlightsMessageId")).then(message => message.delete());
+            client1.channels.cache.get("1214976120408113232").messages.fetch(db.get("noFlightsMessageId")).then(message => message.delete());
             db.set("noFlightsMessageId", null);
             db.save();
           }
@@ -198,7 +198,7 @@ module.exports = {
             channelId
           }
 
-          client1.channels.cache.get("1202190354250473512").messages.fetch(flights[id].messageId).then(message => message.edit({ embeds: [generateEmbed(flights[id])] }));
+          client1.channels.cache.get("1214976120408113232").messages.fetch(flights[id].messageId).then(message => message.edit({ embeds: [generateEmbed(flights[id])] }));
 
           db.set("flights", flights);
           db.save();
@@ -219,7 +219,7 @@ module.exports = {
           var id = interaction.options.getString("id");
           if (!flights[id]) return interaction.editReply({ content: "Flight not found.", ephemeral: true });
 
-          client1.channels.cache.get("1202190354250473512").messages.fetch(flights[id].messageId).then(message => message.delete());
+          client1.channels.cache.get("1214976120408113232").messages.fetch(flights[id].messageId).then(message => message.delete());
 
           db.set("flights", flights);
           db.save();
@@ -238,7 +238,7 @@ module.exports = {
               .setDescription("There are no current flights at this time, check back later for new flights. This message will update when a new flight is created in our systems.")
               .setFooter({ text: "Flight Manager | Last updated:" })
               .setTimestamp()
-            var reply = await client1.channels.cache.get("1202190354250473512").send({ embeds: [a] });
+            var reply = await client1.channels.cache.get("1214976120408113232").send({ embeds: [a] });
             db.set("noFlightsMessageId", reply.id);
             db.save();
           }
