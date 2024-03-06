@@ -18,8 +18,7 @@
 
 <body>
     <nav class="navbar navbar-expand-md" style="background-color: slategray;">
-        <div class="container-fluid"><a class="navbar-brand" href="/" style="/*width: 10px;*/margin-right: -188px;"><img src="assets/img/d12f8639234ec709bb62060625bb2254.jpeg" style="height: 15%;border-radius: .5rem;width: 15%;"></a><span style="display: inline-block; width: 150px;"><span id="jackthetext"></span><span id="jacktheext"></span></span>
-            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container-fluid"><a class="navbar-brand" href="/" style="/*width: 10px;*/margin-right: -188px;"><img src="assets/img/d12f8639234ec709bb62060625bb2254.jpeg" style="height: 15%;border-radius: .5rem;width: 15%;"></a><span style="display: inline-block; width: 150px;"><span id="jackthetext" style="font-size: larger"></span><span id="jacktheext" style="font-size: larger"></span></span><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1" style="background-color: slategray;">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link active" href="/">home</a></li>
@@ -52,9 +51,9 @@
 
         await changeText("jackthefine.", $("#jackthetext"))
 
-        let extensions =  [ "cs", "php", "css", "html", "js", "py", "json" ];
+        let extensions =  [ "cs", "php", "css", "html", "js", "py", "json", "cpp", "xyz", "imaurl" ];
 
-        for await (const i of new Array(4)) {
+        for await (const i of new Array(extensions.length)) {
             let ext = extensions[Math.floor(Math.random() * extensions.length)];
             extensions = extensions.filter(x => x != ext);
 
