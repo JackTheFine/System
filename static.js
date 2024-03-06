@@ -42,6 +42,8 @@ app.get("/ranker", (req, res) => {
 
 app.get("/up/", (req, res) => res.json({ myBot, flyvalle, rambambot, foxy, site: "Up", uptime: new Date(Math.round(process.uptime()) * 1000).toISOString().slice(11, -5) }));
 app.get("/spagpt", (req, res) => res.sendFile(path.join(__dirname, '/public/spagpt.html')));
+app.get("/imgs/roll.gif", (req, res) => res.sendFile(path.join(__dirname, '/public/imgs/roll.gif')));
+
 
 app.get("*", (req, res) => res.sendFile(path.join(__dirname, '/public/down.html')));
 
