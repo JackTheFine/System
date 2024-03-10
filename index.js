@@ -1,5 +1,3 @@
-const db = require("./db.js");
-db.loadFromFile("./db.json");
 const app = require("express")();
 const app1 = require("express")();
 var express = require("express")
@@ -13,13 +11,8 @@ app.set("json spaces", 4);
 app.use(express.static("public", { extensions: ['html'] }));
 app1.use(express.static("2048", { extensions: ['html'] }));
 require("./bots/mybot/index.js")
-var myBot = db.get("botOn");
-var flyvalle = db.get("botOn1");
-var rambambot = db.get("botOn2");
-var foxy = db.get("botOn3");
-var ftcli = db.get("botOn4");
 console.log("Website starting...");
-app.get("/up/", (req, res) => res.json({ myBot, flyvalle, rambambot, foxy, site: "Up", uptime: new Date(Math.round(process.uptime()) * 1000).toISOString().slice(11, -5) }));
+app.get("/up/", (req, res) => res.json({ site: "Up", uptime: new Date(Math.round(process.uptime()) * 1000).toISOString().slice(11, -5) }));
 app.get("*", (req, res) => res.sendFile(path.join(__dirname, '/public/down.html')));
 
 

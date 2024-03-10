@@ -1,5 +1,3 @@
-const db = require("../../db.js");
-db.loadFromFile("./db.json");
 const { Client, Events, GatewayIntentBits, ActionRowBuilder, ButtonBuilder, Collection, EmbedBuilder, ActivityType } = require('discord.js');
 const fs = require('node:fs');
 const { createTranscript } = require('discord-html-transcripts')

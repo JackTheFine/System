@@ -1,5 +1,4 @@
-const db = require("../../db.js");
-db.loadFromFile("./db.json");
+
 const fs = require("fs");
 const { REST, Routes } = require('discord.js');
 const { clientId, guildId, token, token5, clientId5, guildId5 } = require('../../config.json');
@@ -25,7 +24,6 @@ const rest1 = new REST({ version: '10' }).setToken(token5);
 try {
   rest1.put(Routes.applicationCommands(clientId5), { body: commands });
   rest1.put(Routes.applicationGuildCommands(clientId5, guildId5), { body: commandsb })
-  db.set("botOn1","Up")
   console.log('Successfully registered swings application commands.');
 } catch (error) {
   console.error(error);
