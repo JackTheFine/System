@@ -1,32 +1,22 @@
-const db = require("../../db.js");
-db.loadFromFile("./db.json");
 const { Client, Events, GatewayIntentBits, Collection, ActivityType } = require('discord.js');
 const fs = require('node:fs');
-const { token } = require('../../config.json');
+const { token7 } = require('../../config.json');
 require("./deploy-commands")
-//require("../flyvalle bot/index1")
-//require("../rambam bot/index2")
-//require("../linkit/index3")
-//require("../swings/index1")
-//require("../quantum/index1")
-//require("../quantumflight/index")
-//require("../pacificjet/index")
-require("../spaops/index")
 
 const Discord = require('discord.js');
 
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildMembers] });
 
-client.commands = new Collection();
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+//client.commands = new Collection();
+//const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-for (const file of commandFiles) {
+/*for (const file of commandFiles) {
   const command = require(`../../commands/${file}`);
   client.commands.set(command.data.name, command);
-}
+}*/
 client.commandsa = new Collection();
-const commandaFiles = fs.readdirSync('./bots/mybot/special').filter(file => file.endsWith('.js'));
+const commandaFiles = fs.readdirSync('./bots/spaops/special').filter(file => file.endsWith('.js'));
 
 for (const file of commandaFiles) {
   const commanda = require(`./special/${file}`);
@@ -36,7 +26,7 @@ for (const file of commandaFiles) {
 client.once(Events.ClientReady, c => {
 	console.log(`Ready! (logged into ${c.user.tag})`);
   client.user.setPresence({
-  activities: [{ name: `coding.mp3`, type: ActivityType.Listening }],
+  activities: [{ name: `trello`, type: ActivityType.Watching }],
   status: 'idle',
 })});
 
@@ -44,12 +34,12 @@ client.once(Events.ClientReady, c => {
 
 client.on(Events.InteractionCreate, async interaction => {
   if (!interaction.isCommand()) return;
-  const command = client.commands.get(interaction.commandName);
+  //const command = client.commands.get(interaction.commandName);
   const commanda = client.commandsa.get(interaction.commandName);
   try {
-    if (command) {
+    /*if (command) {
       await command.execute(interaction, client, interaction.options._hoistedOptions);
-    }
+    }*/
     if (commanda) {
       await commanda.execute(interaction, client, interaction.options._hoistedOptions);
     }
@@ -59,5 +49,4 @@ client.on(Events.InteractionCreate, async interaction => {
   }
 });
 
-client.login(token);
-db.set("botOn","Up")
+client.login(token7);
