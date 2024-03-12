@@ -17,11 +17,13 @@ module.exports = {
         const data2 = await (await fetch(trellolink2)).json()
         var amount = 0;
         var reached = "did not"
+        var yet = " yet."
         data2.forEach(card => amount++);
         if (amount >= 3) {
             reached = "did"
+            yet = "!"
         }
-        return interaction.reply(`Hello ${interaction.user.tag}! You currently have ${amount} training/s so that means you ${reached} fulfill quota.`)
+        return interaction.reply(`Hello ${interaction.user.tag}! You currently have ${amount} training/s so that means you ${reached} fulfill quota${yet}`)
     } else interaction.reply({ content: "Invalid Permissions", ephemeral: true})
   }
 }
