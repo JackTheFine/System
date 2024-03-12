@@ -28,7 +28,7 @@ module.exports = {
                 }
             });
         }).catch(console.error);
-        interaction.reply({ content: `donme`})
+        interaction.reply({ content: `Completed!`, ephemeral: true})
     } else interaction.reply({ content: "Invalid Permissions", ephemeral: true})
   }
 }
