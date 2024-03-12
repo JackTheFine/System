@@ -18,12 +18,16 @@ module.exports = {
         var amount = 0;
         var reached = "did not"
         var yet = " yet."
+        var s = ""
         data2.forEach(card => amount++);
         if (amount >= 3) {
             reached = "did"
             yet = "!"
         }
-        return interaction.reply(`Hello ${interaction.user.tag}! You currently have ${amount} training/s so that means you ${reached} fulfill quota${yet}`)
+        if (amount >= 2) {
+          s = "s"
+      }
+        return interaction.reply(`Hello ${interaction.user.tag}! You currently have ${amount} training${s} so that means you ${reached} fulfill quota${yet}`)
     } else interaction.reply({ content: "Invalid Permissions", ephemeral: true})
   }
 }

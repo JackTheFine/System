@@ -22,8 +22,12 @@ module.exports = {
     const trellolink2 = `https://api.trello.com/1/lists/${listid}/cards?key=4a90d231a30ce6e3ab41c1046088abb5&token=94087062e584167ccfd2215496b99b019771e54af06cc8d4a05835871f055cc1`
     const data2 = await (await fetch(trellolink2)).json()
     var amount = 0;
+    var s = "s"
     data2.forEach(card => amount++);
-    return interaction.reply(`${user} has ${amount} training/s logged.`)
+    if (amount >= 2) {
+      s = "s"
+  }
+    return interaction.reply(`${user} has ${amount} training${s} logged.`)
 } else interaction.reply({ content: "Invalid Permissions", ephemeral: true})
   }
 }
