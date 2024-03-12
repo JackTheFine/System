@@ -12,7 +12,7 @@ module.exports = {
 				.addBooleanOption(option =>
                     option.setName("quota")
                       .setDescription("Only show users who have not met quota")
-                      .setRequired(false)
+                      .setRequired(true)
                 )
 	),
   async execute(interaction, client) {
