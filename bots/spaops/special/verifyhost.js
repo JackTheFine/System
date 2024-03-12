@@ -12,7 +12,7 @@ module.exports = {
     ),
 
   async execute(interaction, client) {
-    //if (interaction.member.roles.cache.has("1202803806942007349")) {
+    if (interaction.member.roles.cache.has("1105653389410443294")) {
 const userId = interaction.options.getUser("user").id;
 const guild = interaction.guild;
 const member = guild.members.cache.get(userId);
@@ -28,11 +28,11 @@ if (member) {
     member.roles.add(guild.roles.cache.find(r => r.id === "1105656443803271208"))
       .then(() => interaction.reply({ content: `Host Verification added to ${member.user.tag}`, ephemeral: true}))
       
-      .then(client.channels.cache.get("1216412757117763664").send({ embeds: [b] }))
+      .then(client.channels.cache.get("1105869244446556230").send({ embeds: [b] }))
       .catch(error => console.error(error));
 } else {
   interaction.reply({ content: "Member Not Found", ephemeral: true})
 }
-  //} else interaction.reply({ content: "Invalid Permissions", ephemeral: true})
+} else interaction.reply({ content: "Invalid Permissions", ephemeral: true})
   }
 }
