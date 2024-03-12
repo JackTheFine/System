@@ -26,7 +26,6 @@ module.exports = {
         var i = 0
         const trellolink = 'https://api.trello.com/1/boards/4ZYjvFgW/lists?key=4a90d231a30ce6e3ab41c1046088abb5&token=94087062e584167ccfd2215496b99b019771e54af06cc8d4a05835871f055cc1'
         const data = await (await fetch(trellolink)).json()
-        const guild = interaction.guild
         let longest = data.map(card => card.name.length).sort((a, b) => a - b).at(-1)
         let message = "```";
         message += "Name".padEnd(longest) + " | " + "Cards\n"
@@ -36,7 +35,7 @@ module.exports = {
             const carddata = await (await fetch(`https://api.trello.com/1/lists/${card.id}/cards?key=4a90d231a30ce6e3ab41c1046088abb5&token=94087062e584167ccfd2215496b99b019771e54af06cc8d4a05835871f055cc1`)).json()
             if (carddata.length >= 3) continue;
             message += `${card.name.padEnd(longest)} | ${carddata.length}\n`;
-            (await client.guild.users.find(user => user.username == card.name)?.createDM())?.send("Hello! This is a test of the quota reminder, if you get this message please ping @jackthefine (<@710257546908139649>) in and tell him you got the dm. Thanks!");
+            (await interaction.guild.users.find(user => user.username == card.name)?.createDM())?.send("Hello! This is a test of the quota reminder, if you get this message please ping @jackthefine (<@710257546908139649>) in and tell him you got the dm. Thanks!");
         }
 
         message += "```";
