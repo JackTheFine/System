@@ -23,6 +23,7 @@ module.exports = {
                         console.log(`Skipped ${member.user.tag} because they had a list already.`)
                     } else {
                     fetch(`https://api.trello.com/1/boards/4ZYjvFgW/lists?name=${member.user.tag}&key=4a90d231a30ce6e3ab41c1046088abb5&token=94087062e584167ccfd2215496b99b019771e54af06cc8d4a05835871f055cc1`, { method: 'POST' })
+                    console.log(`Created list for ${member.user.tag}.`)
                     }
                 }
             });
