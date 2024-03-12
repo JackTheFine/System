@@ -35,7 +35,7 @@ module.exports = {
             const carddata = await (await fetch(`https://api.trello.com/1/lists/${card.id}/cards?key=4a90d231a30ce6e3ab41c1046088abb5&token=94087062e584167ccfd2215496b99b019771e54af06cc8d4a05835871f055cc1`)).json()
             if (carddata.length >= 3) continue;
             message += `${card.name.padEnd(longest)} | ${carddata.length}\n`;
-            const member = guild.members.cache.find(member => member.user.username === card.name);
+            const member = interaction.guild.members.cache.find(member => member.user.username === card.name);
 
             (await 
               console.log(member.id)
