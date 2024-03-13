@@ -11,8 +11,8 @@ require("../swings/index1")
 require("../quantum/index1")
 require("../quantumflight/index")
 require("../pacificjet/index")
-require("../spaops/index")
-require("../ccbot/index")
+//require("../spaops/index")
+//require("../ccbot/index")
 
 const Discord = require('discord.js');
 
