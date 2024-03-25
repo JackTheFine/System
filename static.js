@@ -41,7 +41,7 @@ app.get("/ranker", (req, res) => {
 });
 
 app.get("/up/", (req, res) => res.json({ site: "Up", uptime: new Date(Math.round(process.uptime()) * 1000).toISOString().slice(11, -5) }));
-
+app.get("/forman", (req, res) => res.download(`${__dirname}/public/assets/img/forman.jpg`));
 app.get("*", (req, res) => res.sendFile(path.join(__dirname, '/public/404.html')));
 
 
