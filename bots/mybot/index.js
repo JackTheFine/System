@@ -4,14 +4,9 @@ const { Client, Events, GatewayIntentBits, Collection, ActivityType } = require(
 const fs = require('node:fs');
 const { token } = require('../../config.json');
 require("./deploy-commands")
-//require("../flyvalle bot/index1")
-//require("../rambam bot/index2")
-//require("../linkit/index3")
 require("../quantum/index1")
 require("../quantumflight/index")
 require("../pacificjet/index")
-//require("../spaops/index")
-//require("../ccbot/index")
 
 const Discord = require('discord.js');
 
