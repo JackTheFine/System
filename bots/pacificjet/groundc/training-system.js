@@ -19,9 +19,14 @@ module.exports = {
 				.setDescription("Training Type")
 		  		.setRequired(true)
 		  		.addChoices(
-					{ name: 'choice 1', value: "1" },
-					{ name: 'choice 2', value: "2" },
-					{ name: 'choice 3', value: "3" },
+					{ name: 'Safety', value: "safety" },
+					{ name: 'Pushback', value: "pb" },
+					{ name: 'GPU', value: "gpu" },
+					{ name: 'JetWay', value: "jetway" },
+					{ name: 'Fuel Truck', value: "fuel" },
+					{ name: 'Airstairs', value: "airstairs" },
+					{ name: 'Lav Truck', value: "lavatory" },
+					{ name: 'Catering Truck', value: "catering" },
 		  		)
 	  	)
 		.addStringOption(option =>
@@ -60,7 +65,7 @@ module.exports = {
 		const embed = new EmbedBuilder()
 			.setColor('Green')
 			.setTitle('Training Posted!')
-			.setDescription(`Thank you for logging your training, ${interaction.user.tag}! Your Module 3 has been successfully posted. This the information that will be logged:`)
+			.setDescription(`Thank you for logging your training, ${interaction.user.tag}! Your ${type} has been successfully posted. This the information that will be logged:`)
 			.addFields({ name: ' ', value: valuegen, inline: false })
 			.setFooter({ text: "PacificJet Assistant"})
 		interaction.reply({ embeds: [embed]})
