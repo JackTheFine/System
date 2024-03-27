@@ -87,7 +87,6 @@ module.exports = {
 		})
 	break;
 	case "profile":
-		interaction.deferReply()
 		const user = interaction.user.tag
     //if (interaction.member.roles.cache.has("1194239791978516481") || interaction.member.roles.cache.has("1023324765676650536")) {
         const trellolink = 'https://api.trello.com/1/boards/juysrKKv/lists?key=4a90d231a30ce6e3ab41c1046088abb5&token=94087062e584167ccfd2215496b99b019771e54af06cc8d4a05835871f055cc1'
@@ -108,7 +107,7 @@ module.exports = {
         if (amount >= 2) {
           s = "s"
       }
-         interaction.editReply(`Hello ${interaction.user.tag}! You currently have ${amount} training${s}.`)
+         interaction.reply(`Hello ${interaction.user.tag}! You currently have ${amount} training${s}.`)
     //} else interaction.reply({ content: "Invalid Permissions", ephemeral: true})
 	break;
 	case "check":
