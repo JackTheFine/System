@@ -65,7 +65,7 @@ module.exports = {
 		const embed = new EmbedBuilder()
 			.setColor('Green')
 			.setTitle('Training Posted!')
-			.setDescription(`Thank you for logging your training, ${interaction.user.tag}! Your ${type} has been successfully posted. This the information that will be logged:`)
+			.setDescription(`Thank you for logging your training, ${interaction.user.tag}! Your ${type} training has been successfully posted. This the information that will be logged:`)
 			.addFields({ name: ' ', value: valuegen, inline: false })
 			.setFooter({ text: "PacificJet Assistant"})
 		interaction.reply({ embeds: [embed]})
