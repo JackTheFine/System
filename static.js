@@ -44,7 +44,7 @@ app.get("/control", (req, res) => {
     .toString()
     .split(":");
 
-  if (!(username === "admin" && password === "shim")) {
+  if (!(username === "admin" && password === "")) {
     return reject();
   }
 
