@@ -16,7 +16,7 @@
     </script>
   </head>
   <body style="background-color: transparent;">
-  <div id="iframe"><iframe src="https://jackthefine.dev/schoolslide/file" style="width: 100%; height: 1080px"></iframe></div>
+  <div id="iframe">placeholder for slideshow</div>
 
     <script>
         var peer = new Peer('rambam-mesivta-tv-screen-1');
@@ -24,7 +24,7 @@
             conn.on('data', function(data) {
                 switch (data.name) {
                     case "slide":
-                        $("#iframe").html(`<iframe src="https://jackthefine.dev/schoolslide/file" style="width: 100%; height: 1080px"></iframe>`);
+                        $("#iframe").html(`placeholder for slideshow`);
                         break;
                     case "bounce":
                         $("#iframe").html(`<iframe src="https://jackthefine.dev/boingy" style="width: 100%;height: 1080px"></iframe>`);
