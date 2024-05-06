@@ -1,0 +1,5 @@
+# jackthefine.dev/robots.txt
+
+User-agent: googlebot
+
+Sitemap: https://www.jackthefine.dev/sitemap.xml
