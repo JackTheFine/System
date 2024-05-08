@@ -24,7 +24,7 @@
             conn.on('data', function(data) {
                 switch (data.name) {
                     case "slide":
-                        $("#iframe").html(`placeholder for slideshow`);
+                        $("#iframe").html(`<iframe src="https://jackthefine.dev/slides" style="width: 100%;height: 1080px"></iframe>`);
                         break;
                     case "bounce":
                         $("#iframe").html(`<iframe src="https://jackthefine.dev/boingy" style="width: 100%;height: 1080px"></iframe>`);
