@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        /* CSS for styling the slideshow container */
+      * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+      body {
+        overflow: hidden;
+        background-color: black;
+      }
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin: none;
+        }
+
+        /* CSS for individual slides */
+        .mySlides {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slideshow-container" id="container">
+    <div class="mySlides fade">
+        <img src="" style="width:100%">
+      </div>
+  </div>
+<script>
+    (async () => {
+        const index = await (await fetch("/nas-public/schoolslide/index.txt")).text();
+        index.split("\n").forEach(x => alert(x));
+        return;
+        showSlides();
+    })();
+
+    var slideIndex = 0;
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides fade");
+
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.opacity = 0;
+        }
+
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+
+        slides[slideIndex - 1].style.opacity = 1;
+
+        setTimeout(showSlides, 5000); // Change slide every 5 seconds
+    }
+</script>
+
+</body>
+</html>
