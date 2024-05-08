@@ -125,6 +125,7 @@ app.get("/ipgrabber", async (req, res) => {
   res.writeHead(200, { "Content-Type": "image/png", "Content-Length": image.length });
   res.end(image);
 });
+app.get("/hidden/slides", (req, res) => res.sendFile(path.join(__dirname, '/hidden/slides.html')));
 app.get("*", (req, res) => res.sendFile(path.join(__dirname, '/public/404.html')));
 
 try {
