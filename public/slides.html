@@ -43,7 +43,6 @@
     (async () => {
         const index = await (await fetch("/nas-public/schoolslide/index.txt")).text();
         index.split("\n").forEach(x => $("#container").append(`<div class="mySlides fade"> <img src="/nas-public/schoolslide/${x}" style="width: 100%"> </div>`));
-        return;
         showSlides();
     })();
 
