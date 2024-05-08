@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
     <title></title>
     <style>
         /* CSS for styling the slideshow container */
@@ -41,7 +42,7 @@
 <script>
     (async () => {
         const index = await (await fetch("/nas-public/schoolslide/index.txt")).text();
-        index.split("\n").forEach(x => document.getElementById("container").insertAdjacentHTML(`<div class="mySlides fade"> <img src="/nas-public/schoolslide/${x}" style="width: 100%"> </div>`));
+        index.split("\n").forEach(x => $("#container").append(`<div class="mySlides fade"> <img src="/nas-public/schoolslide/${x}" style="width: 100%"> </div>`));
         return;
         showSlides();
     })();
