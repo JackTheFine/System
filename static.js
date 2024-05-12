@@ -22,34 +22,11 @@ var port1 = "8081"
 var port2 = "8082"
 
 app.set("json spaces", 4);
-
-app.use(express.static("public", { extensions: ['html'] }));
-app1.use(express.static("2048", { extensions: ['html'] }));
 app.get("/control", (req, res) => {
-  const reject = () => {
-    res.setHeader("www-authenticate", "Basic");
-    res.sendStatus(401);
-  };
-
-  const authorization = req.headers.authorization;
-
-  if (!authorization) {
-    return reject();
-  }
-
-  const [username, password] = Buffer.from(
-    authorization.replace("Basic ", ""),
-    "base64"
-  )
-    .toString()
-    .split(":");
-
-  if (!(username === "admin" && password === "")) {
-    return reject();
-  }
-
   res.sendFile(path.join(__dirname, '/hidden/control.html'))
 });
+app.use(express.static("public", { extensions: ['html'] }));
+app1.use(express.static("2048", { extensions: ['html'] }));
 var myBot = db.get("botOn");
 var flyvalle = db.get("botOn1");
 var rambambot = db.get("botOn2");

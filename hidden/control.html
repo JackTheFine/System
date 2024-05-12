@@ -15,40 +15,47 @@
     <div id="panel">
     <center>
       <h1>Connection Status</h1>
-      <h1><span id="active" style="color: red;">●</span>&lt-- TV1 | TV2 --&gt<span id="active1" style="color: red;">●</span</h1>
+      <h1><span id="active" style="color: red;">●</span>&lt-- TV1 | TV2 --&gt<span id="active1" style="color: red;">●</span> | TV3 --&gt<span id="active2" style="color: red;">●</span></h1>
     <div>
-    <button onclick="peerConnect()" class="btn btn-primary btn-lg">Connect to TV1 Screen</button>
-      <button onclick="peer1Connect()" class="btn btn-primary btn-lg">Connect to TV2 Screen</button>
+    <button onclick="peerConnect()" class="btn btn-primary btn-lg">Connect to TV1 Screen</button>ㅤ
+      <button onclick="peer1Connect()" class="btn btn-primary btn-lg">Connect to TV2 Screen</button>ㅤ
+      <button onclick="peer2Connect()" class="btn btn-primary btn-lg">Connect to TV3 Screen</button>
       <div>
         <span></span>
       </div>
-    <button onclick="startSlide()" class="btn btn-primary btn-lg">Picture Slideshow</button>
-      <button onclick="startSlide1()" class="btn btn-primary btn-lg">Picture Slideshow</button>
+    <button onclick="startSlide()" class="btn btn-primary btn-lg">Picture Slideshow</button>ㅤ
+      <button onclick="startSlide1()" class="btn btn-primary btn-lg">Picture Slideshow</button>ㅤ
+      <button onclick="startSlide2()" class="btn btn-primary btn-lg">Picture Slideshow</button>
       <div>
         <span></span>
       </div>
-    <button onclick="startBoing()" class="btn btn-primary btn-lg">Rambam bounce</button>
-      <button onclick="startBoing1()" class="btn btn-primary btn-lg">Rambam bounce</button>
+    <button onclick="startBoing()" class="btn btn-primary btn-lg">Bouncing logo</button>ㅤ
+      <button onclick="startBoing1()" class="btn btn-primary btn-lg">Bouncing logo</button>ㅤ
+      <button onclick="startBoing2()" class="btn btn-primary btn-lg">Bouncing logo</button>
       <div>
         <span></span>
       </div>
-    <button onclick="black()" class="btn btn-primary btn-lg">Black Screen</button>
-      <button onclick="black1()" class="btn btn-primary btn-lg">Black Screen</button>
+    <button onclick="black()" class="btn btn-primary btn-lg">Black Screen</button>ㅤ
+      <button onclick="black1()" class="btn btn-primary btn-lg">Black Screen</button>ㅤ
+      <button onclick="black2()" class="btn btn-primary btn-lg">Black Screen</button>
       <div>
         <span></span>
       </div>
-    <button onclick="reload()" class="btn btn-primary btn-lg">Reload site</button>
-      <button onclick="reload1()" class="btn btn-primary btn-lg">Reload site</button>
+    <button onclick="reload()" class="btn btn-primary btn-lg">Reload site</button>ㅤ
+      <button onclick="reload1()" class="btn btn-primary btn-lg">Reload site</button>ㅤ
+      <button onclick="reload2()" class="btn btn-primary btn-lg">Reload site</button>
       <div>
         <span></span>
       </div>
-    <button onclick="box()" class="btn btn-primary btn-lg">Insert Link</button>
-      <button onclick="box1()" class="btn btn-primary btn-lg">Insert Link</button>
+    <button onclick="box()" class="btn btn-primary btn-lg">Insert Link</button>ㅤ
+      <button onclick="box1()" class="btn btn-primary btn-lg">Insert Link</button>ㅤ
+      <button onclick="box2()" class="btn btn-primary btn-lg">Insert Link</button>
       <div>
         <span></span>
       </div>
-<button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#image1modal">Add Image</button>
-<button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#image2modal">Add Image</button>
+<button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#image1modal">Add Image</button>ㅤ
+<button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#image2modal">Add Image</button>ㅤ
+<button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#image3modal">Add Image</button>
 
 <div class="modal fade" id="image1modal" tabindex="-1" aria-labelledby="labelthing" aria-hidden="true">
   <div class="modal-dialog">
@@ -71,7 +78,7 @@
   <div class="modal-dialog">
     <div class="modal-content" style="color: white">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="labelthing1">Insert Image For TV1</h1>
+        <h1 class="modal-title fs-5" id="labelthing1">Insert Image For TV2</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -80,6 +87,23 @@
       </div>
       <div class="modal-footer">
         <button type="button" onclick="sendFile1()" class="btn btn-secondary" data-bs-dismiss="modal">Send to TV</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="image3modal" tabindex="-1" aria-labelledby="labelthing2" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="color: white">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="labelthing2">Insert Image For TV3</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input class="form-control" onchange="previewFile2()"type="file" id="formFile2" accept="image/*">
+        <img style="font-size:medium;" src="" height="200" id="displayimg3" alt="Waiting for image..." />
+      </div>
+      <div class="modal-footer">
+        <button type="button" onclick="sendFile2()" class="btn btn-secondary" data-bs-dismiss="modal">Send to TV</button>
       </div>
     </div>
   </div>
@@ -118,6 +142,34 @@
         function box() {
           let promt = prompt("Insert a link to display on TV1 (Make sure to include https:// or it will not work.)");
           conn.send({ name: `<iframe src="${promt}" style="width: 100%;height: 1080px"></iframe>` });
+          return
+        }
+        var peer2 = new Peer()
+        var conn2;
+
+        function startSlide2() {
+            conn2.send({ name: "slide" });
+            return
+        }
+        function startBoing2() {
+          conn2.send({ name: "bounce" });
+          return
+        }
+        function connectInfo2() {
+          conn2.send({ name: "connect" });
+          return
+        }
+      function black2() {
+          conn2.send({ name: "black" });
+          return
+        }
+        function reload2() {
+          conn2.send({ name: "reload" });
+          return
+        }
+        function box2() {
+          let promt = prompt("Insert a link to display on TV3 (Make sure to include https:// or it will not work.)");
+          conn2.send({ name: `<iframe src="${promt}" style="width: 100%;height: 1080px"></iframe>` });
           return
         }
       var peer1 = new Peer()
@@ -173,7 +225,7 @@
           reader.addEventListener(
             "load",
             () => {
-              conn.send({ name: `<img src="${reader.result}" style="width: 1920px;height: 1080px"></img>` });
+              conn.send({ name: `<center><img src="${reader.result}" style="height: 1080px"></img></center>` });
           },
         false,
       );
@@ -207,7 +259,41 @@
           reader.addEventListener(
             "load",
             () => {
-              conn1.send({ name: `<img src="${reader.result}" style="width: 1920px;height: 1080px"></img>` });
+              conn1.send({ name: `<center><img src="${reader.result}" style="height: 1080px"></img></center>` });
+          },
+        false,
+      );
+
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+    }
+    function previewFile2() {
+          const preview = document.getElementById("displayimg3");
+          const file = document.getElementById("formFile2").files[0];
+          const reader = new FileReader();
+
+          reader.addEventListener(
+            "load",
+            () => {
+            preview.src = reader.result;
+          },
+        false,
+      );
+
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+    }
+    function sendFile2() {
+
+          const file = document.getElementById("formFile2").files[0];
+          const reader = new FileReader();
+
+          reader.addEventListener(
+            "load",
+            () => {
+              conn2.send({ name: `<center><img src="${reader.result}" style="height: 1080px"></img></center>` });
           },
         false,
       );
@@ -233,6 +319,15 @@
             });
             conn1.on("close", () => {
                 $("#active1").css("color", "red");
+            });
+        }
+        function peer2Connect() {
+          conn2 = peer2.connect('rambam-mesivta-tv-screen-3');
+            conn2.on("open", () => {
+                $("#active2").css("color", "green");
+            });
+            conn2.on("close", () => {
+                $("#active2").css("color", "red");
             });
         }
     </script>
