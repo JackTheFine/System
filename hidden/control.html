@@ -303,7 +303,7 @@
     }
         
         function peerConnect() {
-          conn = peer.connect('rambam-mesivta-tv-screen-1', { key: "peerjs", port: 9000, host: "https://thing.jackthefine.dev" });
+          conn = peer.connect('rambam-mesivta-tv-screen-1', { key: "peerjs", port: 9000, host: "74.88.224.204" });
             conn.on("open", () => {
                 $("#active").css("color", "green");
             });
@@ -312,7 +312,7 @@
             });
         }
       function peer1Connect() {
-          conn1 = peer1.connect('rambam-mesivta-tv-screen-2', { key: "peerjs", port: 9000, host: "https://thing.jackthefine.dev" });
+          conn1 = peer1.connect('rambam-mesivta-tv-screen-2', { key: "peerjs", port: 9000, host: "74.88.224.204" });
             conn1.on("open", () => {
                 $("#active1").css("color", "green");
             });
@@ -321,7 +321,7 @@
             });
         }
         function peer2Connect() {
-          conn2 = peer2.connect('rambam-mesivta-tv-screen-3', { key: "peerjs", port: 9000, host: "https://thing.jackthefine.dev" });
+          conn2 = peer2.connect('rambam-mesivta-tv-screen-3', { key: "peerjs", port: 9000, host: "74.88.224.204" });
             conn2.on("open", () => {
                 $("#active2").css("color", "green");
             });
