@@ -12,7 +12,7 @@
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/peerjs@1.5.3/dist/peerjs.min.js"></script>
+    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </script>
   </head>
@@ -20,7 +20,7 @@
   <div id="iframe"><iframe src="https://jackthefine.dev/hidden/slides" style="width: 100%;height: 1080px"></iframe></div>
 
     <script>
-        var peer = new Peer('kjhfjkoeqbwvhirghrwejbgiohrwepug');
+        var peer = new Peer('rambam-mesivta-tv-screen-1');
         peer.on('connection', function(conn) {
             conn.on('data', function(data) {
                 switch (data.name) {
