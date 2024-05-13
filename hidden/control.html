@@ -303,7 +303,7 @@
     }
         
         function peerConnect() {
-          conn = peer.connect('rambam-mesivta-tv-screen-1', { key: "peerjs", port: 9000, host: "74.88.224.204" });
+          conn = peer.connect('rambam-mesivta-tv-screen-1');
             conn.on("open", () => {
                 $("#active").css("color", "green");
             });
