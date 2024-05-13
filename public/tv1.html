@@ -20,7 +20,7 @@
   <div id="iframe"><iframe src="https://jackthefine.dev/hidden/slides" style="width: 100%;height: 1080px"></iframe></div>
 
     <script>
-        var peer = new Peer('rambam-mesivta-tv-screen-1', { key: "peerjs", port: 9000, host: "74.88.224.204" });
+        var peer = new Peer('rambam-mesivta-tv-screen-1', { key: "peerjs", port: 9000, host: "https://thing.jackthefine.dev" });
         peer.on('connection', function(conn) {
             conn.on('data', function(data) {
                 switch (data.name) {

@@ -1,1 +1,1 @@
-peerjs --port 9000 --key peerjs --path / 
+npx peerjs --port 9000 --key peerjs --path / 
