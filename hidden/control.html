@@ -66,7 +66,7 @@
   <button onclick="reload2()" class="btn btn-primary btn-lg">Reload site (TV3)</button>
   <span></span>
   <div>
-    <h1>Time till page refresh<h1 id="refresh">20</h1></h1>
+    <h1>Time till page refresh<h1 id="refresh">60</h1></h1>
     <span><a href="/" target="_blank">why?</a></span>
   </div>
 </div>
@@ -345,6 +345,7 @@
             });
         }
         var restart = 60
+        document.getElementById('refresh').innerText = restart
         function nextnumber() {
           if (!restart == 0) {
           restart--
