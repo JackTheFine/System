@@ -55,9 +55,11 @@
       <div>
         <span></span>
       </div>
+      <div>
 <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#image1modal">Add Image (TV1)</button>ㅤ
 <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#image2modal">Add Image (TV2)</button>ㅤ
 <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#image3modal">Add Image (TV3)</button>
+</div>
 <span></span>
 <button onclick="reload()" class="btn btn-primary btn-lg">Reload site (TV1)</button>ㅤ
   <button onclick="reload1()" class="btn btn-primary btn-lg">Reload site (TV2)</button>ㅤ
@@ -65,6 +67,7 @@
   <span></span>
   <div>
     <h1>Time till page refresh<h1 id="refresh">20</h1></h1>
+    <span><a href="/" target="_blank">why?</a></span>
   </div>
 </div>
   <div>
@@ -347,7 +350,7 @@
           restart--
           document.getElementById('refresh').innerText = restart
           } else {
-            window.reload
+            location.reload()
           }
         }
         setInterval(nextnumber, 1000)
