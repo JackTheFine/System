@@ -4,8 +4,8 @@ const { Client, Events, GatewayIntentBits, Collection, ActivityType } = require(
 const fs = require('node:fs');
 const { token } = require('../../config.json');
 require("./deploy-commands")
-require("../quantum/index1")
-require("../quantumflight/index")
+//require("../quantum/index1")
+//require("../quantumflight/index")
 require("../pacificjet/index")
 require("../SKN/index1")
 
