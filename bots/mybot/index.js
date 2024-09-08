@@ -1,13 +1,8 @@
-const db = require("../../db.js");
-db.loadFromFile("./db.json");
+
 const { Client, Events, GatewayIntentBits, Collection, ActivityType } = require('discord.js');
 const fs = require('node:fs');
 const { token } = require('../../config.json');
 require("./deploy-commands")
-//require("../quantum/index1")
-//require("../quantumflight/index")
-require("../pacificjet/index")
-require("../SKN/index1")
 
 const Discord = require('discord.js');
 
@@ -56,4 +51,3 @@ client.on(Events.InteractionCreate, async interaction => {
 });
 
 client.login(token);
-db.set("botOn","Up")
