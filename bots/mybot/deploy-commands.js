@@ -25,7 +25,7 @@ const rest = new REST({ version: '10' }).setToken(token);
 
 try {
   rest.put(Routes.applicationCommands(clientId), { body: commands });
-  rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commandsa });
+  //rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commandsa });
   console.log('Successfully registered Global commands');
 } catch (error) {
   console.error(error);
