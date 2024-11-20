@@ -7,7 +7,7 @@ var port = "8080"
 var port2 = "8081"
 
 app.set("json spaces", 4);
-app.use(express.static(path.join(__dirname, '/public/'), { extensions: ['html'] }));
+app.use(express.static("public", { extensions: ['html'] }));
 console.log("Website starting...");
 
 app.get("/up/", (req, res) => res.json({ site: "Up", uptime: new Date(Math.round(process.uptime()) * 1000).toISOString().slice(11, -5) }));
